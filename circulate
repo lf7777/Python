@@ -1,0 +1,65 @@
+Python circulate
+
+1.for...in:
+
+<1>格 式 :
+依次把list或tuple中的每个元素迭代出来
+执行缩进的内容
+
+(1)
+sum = 0
+for x in [1,2,3,4,5,6,7,8,9,10]:
+    print(x)
+
+(2)
+for ... in ...:
+
+else:
+迭代 结束后 执行 else:语句块.
+
+
+<2>遍 历 字 典 :
+
+(1)遍 历 键
+    for i in dict:
+        只会 遍历 键
+
+(2)遍 历 值 :
+    for i in dict.values(): 
+        只会 遍历 值
+
+(3)同 时 遍 历 :
+    for i,k in dict.items():
+        同时遍历
+
+items() 方法:
+    items()将 字典 转换为 列表里 嵌套元祖 的方式.
+    列表 集合 元祖 字符串 均不可使用,只有 字典可以.
+        a = {1:2,2:3}
+            a.items()
+                [(1,2),(2,3)]
+
+
+2.while:
+
+while 进行遍历时 是建立在 容器类型 有索引的前提下,列表元祖.
+
+<1>
+
+L = ['Bart','Lisa','Adam']
+
+i=0                           条件控制语句必须要初始化数值,不然报错
+
+while i < len(L) :            ':',无论是for...in,还是while首行条件控制语句冒号不能少
+    print(L[i])
+    i+=1                      赋值表达式要写在里面了,不然会无限循环
+
+
+<2>
+
+while i < 10 :
+    print()
+    i+=1
+else:
+    print()表示 循环 结束后 执行的 代码块
+

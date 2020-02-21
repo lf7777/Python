@@ -1,0 +1,24 @@
+lanbda 函数是一种小的匿名函数.可接收任意数量的参数,但只能有一个表达式.
+格式: lambda arguments : expression
+
+1.
+x = lambda a,b : a+b
+print(x(3,4))
+其相当于:
+def f(a,b):
+    return a+b
+
+注意:1.lambda中 lambda后面的是参数,:号后面的是函数return的表达式,不需要加return
+
+
+2.
+lambda 的分之操作:
+
+lambda不能进行循环操作或者其他复杂操作,最多进行 分之判断.
+
+getsex = lambda str1:'man' if str1 == '男' else 'women'
+result = getsex('男')
+print(result)
+
+总结:分之操作中,在表达式里,左右为 return 的内容,左为真,右为假.中间为条件判断.
+

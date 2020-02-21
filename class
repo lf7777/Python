@@ -1,0 +1,78 @@
+类的创建:
+
+1. 构造函数 __init__(),该方法在类的实例化时自动调用.
+意义:在实例化的时候,需要让变量指针指向我们我们传了参数的类,当用该变量调用的时候,在通过实例化的变量调用这个类的时候,传的参数值已经被self.name所指向了,在这个环境下都可以使用self.name这个变量.
+
+class person:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+
+self名字可以改变,self.name也可以写成self.a,将self.a指针指向传进来的参数数值.
+
+它的意义在于要证明这些属性是属于实例化后这个类的,因为如果没有的话,调用这个类之后,其中的name或者age是变量,没有声明是不能使用的,self.name = name:让self指向self.name,不然是不能储存值的.但是,为什么我没有传self这个参数,它却可以代表这个类.
+
+
+访问限制:
+内部属性不被外部访问,在属性名称前加两个下划线__,变为私有变量.
+
+
+类的判断:
+判断一个!!变量!!是否是某个类型可以用isinstance():
+子类的实例化,实例化后的对象是该子类的类型,该子类不是父类的类型,因为子类不是对象.
+isinstance(b,Animal)
+
+
+类的实例化:
+
+注意!!:在有构造函数的的class里面,每实例话一次,就会调用一次构造函数的完整内容.
+
+x = person('bob',25)
+
+print(x.name)
+
+
+修改属性:
+x.name = 100
+删除对象属性:
+del x.name
+删除对象:
+del x 
+
+
+类的继承:
+类传类叫继承.
+
+class person:
+    ooo = 50
+    source = 100
+    __weight = 10
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def fun(self):
+        return self.name+'我最帅了'
+
+x = person('bob',10)
+
+print(x.fun())
+
+class student(person):
+    #只有子类构造函数才可以接收父类构造函数:
+    def __init__(self,name,age):
+        #调用父类的构造函数 
+        person.__init__(self,name,age)
+    def fun(self):
+        return self.name+'我最帅了'+'哈哈'
+
+z = student('mike',10)
+print(z.name)
+print(z.fun())
+
+
+多态:
+
+
+注意:
+1.不传参数的实例化不带括号,也可以用,但只可以调用父类里的一些没有参的属性方法.
+

@@ -1,0 +1,100 @@
+值 是字符串类型 : 按照ascii编码的大小排:比如 a > A >0
+
+1.decode('utf-8', errors='ignore')
+忽略错误
+
+2.由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+3. & 求的是交集,同时也是与的意思.
+   | 求的是并且,同时也是或的意思.
+
+4.python换行有空格是逗号产生的空格,想解决换行有空格的问题:
+1.就是让其还是一个字符串,用+号,print('a'+'\n5'),或者print('a',5,sep='\n')
+2.如果是这样:print(res,len(res),sep='\n')
+    其中两个都不是字符串,用加好是不可能的,所以用第二种办法
+
+5.print(x,end="a") 在x后面写个a
+
+6.在python中,
+a = 'x'
+type(a)  类型是str,但是类型属于'x',a并没有类型.
+
+7. = 号 ,不是赋值也不是等于,实际上是指针,变量指向了某个内容.
+
+8.可变与不可变类型区分:主要在于其本身的内容改变与否,列表
+
+9.删除变量:
+del name
+删除多个
+del name,name1,name2
+
+10.python3.8一般的类似collections模块的位置在/usr/local/lib/python.3.8
+
+11.while True:
+True实际上就是一个条件,只不过用真的条件,如果在while循环里面没有 break/return的化,会永远一直循环.
+
+12.encode()方法用于转换为字节流.
+   decode()方法用于转为为str.
+
+13.isinstance(b'a',bytes) True.
+
+14.dir()  : 可以获得一个对象的所有属性和方法,返回一个字符串的list.
+
+15.python索引可以从0,也可以从-1,-1代表最后一个.
+
+16.把列表当队列使用,先进先出.
+from collections import deque
+
+17.在局部作用域内改变全局变量.
+global num 就可以了
+此时,在局部内修改 num 的值,即修改了全局变量的值.
+
+18.nonlocal 
+  修改外部变量,外部变量指的不是全局,而是一个函数里套了一个函数,内层函数修改外层函数的变量的值,使用global是修改全局,而非外部,此时需要使用nonlocal
+
+19.列表具有穿透函数的效果,可以无视局部,全局变量.
+
+20.将python3设为默认.
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
+
+21.复数:
+实数 + 虚数 = 复数
+第一种声明虚数的方式:
+comvar = 55 + 2j
+第二种:
+comvar = complex(55,66)
+complex可以识别左为实数,右为虚数.
+
+22.回车按键不是回车符号:
+windows 平台:
+    \r\n
+linux 平台:
+    \n
+macos 平台:
+    \r 10.9版本前,\n 10.9版本后
+
+23.
+列表 和 元祖 是有序数据类型.
+元祖 ()格式.
+区别 : 列表元素 可以修改, 元祖元素不可修改.
+
+集合: set
+使用 中括号,无序,值不可改变,用来 找并集. 所以叫集合.
+set = {'a','b','c'}
+
+list(set())
+得到的是一个存有并集的列表.
+
+dict:不能单独存在键,会报错.定义了相同的键,会被后面的键值覆盖.
+
+24.range() 左闭右开
+第一个参数 : 起始位置.              默认不存在 是 0 .
+第二个参数 : 终止位置.              必须指定.
+第三个参数 : 步长 : +几 结果打几.   默认是 1 .
+正数的 步长 必须为 正数,否则没结果.
+复数的 步长 必须为 负数,否则没结果.
+    

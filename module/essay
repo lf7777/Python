@@ -1,0 +1,40 @@
+模块概念:
+
+模块即文件.
+
+  我们从Python解释器退出再进入后,已经定义过的所有方法和变量都消失了,为了让这些内容依旧存在,Python提供了一个办法,把这些定义存放在文件中,为一些脚本或者交互式的解释器实例使用,这个文件被称为模块.
+
+1.导包:
+import sys
+sys.path的路径为:
+
+Python 路径为: ['/home/lf/data/computerLanguege/python/practise', '/usr/local/lib/python38.zip', '/usr/local/lib/python3.8', '/usr/local/lib/python3.8/lib-dynload', '/usr/local/lib/python3.8/site-packages']
+
+只要模块或者包所在的目录在sys.path中，就可以使用import 模块或import 包来导入，如果你要使用的模块（py文件）和当前模块在同一目录，只要import相应的文件名就好；已确认可以.
+
+
+2.from的作用是从哪个文件中,和import等价,但是写了from,import的作用就是导入具体某个函数了. 
+import等于是从文件中导入函数
+直接import文件, 需要 文件名.函数名来调用.
+ 
+
+3.dir()函数:
+dir()  不写参数是查看自身模块定义的所有名称.
+dir(x)  会列出导入的x模块内的定义的所有名称.
+
+在交互模式下 a = 4
+dir()之后会显示 a
+del a
+dir()之后会不显示 a
+
+4.暂时理解符号表:
+一篇文章肯定是要用的很多符号,而python的一个模块需要的变量名等为程序的符号表.
+
+5.在导包的时候
+目录只有包含一个叫做__init__.py的文件才会被认作是一个包
+
+6.from 何时用?
+from 顶层包.子包 import 模块
+
+如果不这样写每次使用都需要顶包.子包.模块
+还可以from 顶包.子包.模块 import 函数

@@ -1,0 +1,38 @@
+1.查看版本:
+pip3 -V
+pip3 --version
+
+2.which pip3
+查看位置
+
+3.which python3 which python
+查看python不同版本的位置
+
+4.更改pip3指向
+编辑pip3文件，将第一行的路径更改为python3所在的位置
+#! 文件地址
+#!是默认的
+
+5.pip3 install 包名
+pip3会在PyPI中查找这个包，计算其依赖关系
+
+一般Ubuntu默认的Python版本都为2.x, 如何改变Python的默认版本呢？假设我们需要把Python3.5设置为默认版本：
+首先查看Python默认版本:
+
+ubuntu@user~$:python --version
+Python 2.7
+搜索系统是否已经安装Python3.5:
+
+ubuntu@user~$:whereis python3.5
+如果结果里有/usr/bin/python3.5说明已经安装，如果没有则需要手动安装。
+
+安装完成后，需要删除原有的Python连接文件:
+
+ubuntu@user~:rm /user/bin/python
+然后建立指向Python3.5的软连接：
+
+ubuntu@user~:ln -s /usr/bin/python3.5 /usr/bin/python
+之后把路径/usr/bin/加入环境变量PATH中：
+
+ubuntu@user~:PATH=/usr/bin:$PATH
+现在输入python --version你就会发现python默认版本变为Python3.5了:)

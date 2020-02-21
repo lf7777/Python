@@ -1,0 +1,27 @@
+1.import types
+types中的方法有types.FunctionType
+	       types.BuiltinFunctionType
+	       LambdaType
+等等,暂时知道的用法可以是判断:type(lambda x:x)==types.LambdaType
+
+
+2.type
+判断基本的数据类型.
+
+
+3.isinstance()
+还可以判断class的类型.
+isinstance(b'a',bytes) True.
+
+
+4.dir()
+可以获得一个对象的所有属性和方法,返回一个字符串的list.
+该对象的方法有很多.举个例子,它里面包括__len__()方法,所以使用len('aa')和
+'aa'.__len__()的结果都是2.
+
+
+encode()方法用于转换为字节流.
+decode()方法用于转为为str.
+
+
+

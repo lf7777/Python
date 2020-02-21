@@ -1,0 +1,71 @@
+list:
+  append (在文章后面)附加,增补
+  insert 加插
+  pop    本身就具有移出的意思
+  slice 切片
+
+tuple:元祖
+
+  range 区间
+  item 项目
+
+items 项目
+
+iteration 迭代:
+  iterable 可迭代对象
+  iterator 迭代器
+  ergodic 遍历
+
+generator 生成器
+
+Attribute 属性
+
+Constant 常数
+
+Guides 指南
+
+Exception 例外
+
+Marcos 宏
+
+Section 部分
+
+Statement 声明
+
+Variable 变量
+
+Class 类
+  slots 插入
+
+Function 函数
+  parameter 参数
+
+extra 额外的
+
+Module 模块
+  functiontools 功能工具
+  collections 收藏
+  operator 操作器
+Method 方法
+
+Option 选项
+
+Type 类型
+
+enumerate 枚举
+
+expression 表达式
+
+reduce 缩小
+
+complex 复数
+
+mode 方式
+
+error 错误
+  assert 断言
+  raise 提升
+
+process 进程
+thread 线程 
+  fork 分叉

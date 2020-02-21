@@ -1,0 +1,10 @@
+过滤器.过滤函数排除可迭代对象中的项目
+python3返回一个迭代器,python2返回列表.
+
+使用:
+
+x = filter(lambda y:y%2==1,[1,2,3,4,5])
+z = list(x)
+z指向的是 [1,3,5].    注意:1.lambda中 lambda后面的是参数,:号后面的是函数return的表达			       式,return表达式里不需要加if. 
+
+filter()方法调用其中的函数时,只返回True的内容.False则直接无视.

@@ -1,0 +1,414 @@
+OS : operate System 操作系统
+
+os模块并不是python启动就加载的模块
+
+
+一. 导 入 os 模 块 :
+
+<1> import os
+
+    help(os)
+
+
+
+二. os 模 块 函 数 :
+
+
+1. 文 件 , 文 件 夹 操 作 相 关 函 数 :
+
+
+<1> os.getcwd()
+    current work directory 现在的工作目录
+
+        获取当前的工作目录.
+        return 字符串类型
+
+<2> os.chdir()
+    改变当前的工作目录  change directory      
+
+        os.chdir('要设置的目录,字符串类型')
+            return 无
+        
+        参数 :  
+        (1) 绝对路径或者相对路径.
+        (2) 字符串格式
+        
+<3> os.listdir()
+    获取 目录中 所有文件或者文件夹 的名称.
+
+        os.listdir('/home/lf or ../')
+
+        参数 :  
+        (1) 默认当前
+        (2) 绝对路径或者相对路径.
+        (3) 字符串格式
+
+<4> os.mkdir()
+    创建 文件夹.  
+
+        os.mkdir('/home/lf/newdir or ../newdir')
+
+        参数 :  
+        (1) 默认当前
+        (2) 路径后 跟文件夹名.
+        (3) 绝对路径或者相对路径.
+        (4) 字符串格式
+        
+<5> os.makedirs() 
+    创建了一个整目录, 一直创建文件夹到底,由浅及深,
+
+        os.makedirs('/home/lf/newdir/new/n')
+
+        参数 :  
+        (1) 路径后 跟文件夹名.
+        (2) 绝对路径或者相对路径.
+        (3) 字符串格式
+
+<6> os.rmdir()
+    删除空文件夹.
+
+    os.remove()
+    删除文件
+
+<7> 小心,最好别用.os.removedirs()
+    一直删到底,删除一个整目录.删除空文件夹.
+
+        os.removedirs('')
+
+<8> os.rename()
+    修改 文件 或者 文件夹 的名称
+
+        os.rename('路径/旧文件名','路径/新文件名')
+
+        参数 :  
+        (1) 参数1为 路径带 旧文件,文件夹名,参数2为 路径带 新文件,文件夹名. 
+        (2) 绝对路径或者相对路径.
+        (3) 字符串格式
+
+<9> os.stat()
+    获取文件或文件夹的 状态信息.
+
+        os.stat('/home')     
+            return 容器数据 : 保存着很多的文件夹和文件的信息.
+
+        参数 :  
+        (1) 路径后 跟文件夹名.
+        (2) 绝对路径或者相对路径.
+        (3) 字符串格式
+
+
+
+
+2. 环 境 变 量 相 关 函 数 : environment variable 环境变量
+
+
+    概 念 : 环境变量就是一组路径的组合.
+
+    作 用 : 执行 系统命令的时候,提供 查找文件的 路径.
+
+    设置了环境变量 执行命令时,系统会去环境变量中找路径.
+
+
+<1> os.getenv()
+    获取 系统中的 环境变量.
+
+        res = os.getenv('环境变量名(是个键)')
+                            '自己用的写PATH'
+                result = res.split(':')
+                    return list
+
+
+<2> os.putenv()
+    设置python的环境变量.
+        python在启动时 会从系统环中 复制的一份 环境变量路径.
+
+            os.putenv('环境变量名(是个键)','值')
+
+            putenv() put的是 复制的这一份.只在python中生效.
+                此时是 getenv()不到的,因getenv()是系统内的.
+
+
+<3> 推 荐 : os模块中 环境变量 成员 : 
+    os.environ  是字典,非函数.
+
+        os.environ['环境变量名(是个键)'] 
+                   '自己用的写 PATH'
+            return 环境变量路径 字符串格式.
+
+            (1)environ 是字典
+            (2)'PATH'  是键
+            (3)return  内容是值
+
+            添加环境变量 :
+            os.environ['PATH']+='新路径'
+
+
+
+3. os 模 块 中 常 用 的 路 径 与 值 :
+
+
+<1> os.curdir  值,非函数.
+    获取 当前 路径.
+
+    os.curdir()
+        return '.'
+
+
+<2> os.pardir  值,非函数
+    获取 上层 的路径.
+
+    os.pardir() 
+        return '..'
+
+
+<3> os.name
+    获取 系统的 标识符号.
+        os.name
+            return :
+
+        (1)windows      'nt'
+        (2)linux unix   'posix'
+        (3)mac os
+
+
+<4> os.sep
+    获取当前系统的 路径分割符号.
+        os.sep
+            return :
+
+        (1)windows       '\'
+        (2)linux unix    '/'
+        (3)max os
+
+
+<5> os.extsep
+        获取当前文件 名称 与 文件后缀名称 之间的分隔符.
+            os.extsep
+                return '.'
+
+
+<6> os.linesep
+    获取系统的 换行符号.
+        os.linesep
+            return :
+            
+        (1)windows       '\r\n'
+        (2)linux unix    '\n'
+        (3)max os        10.9以前'\r' 10.9以后'\n'
+
+
+<7> os.path
+
+    os模块下的 path 子模块.主要用于 路径相关的操作.
+
+
+    (1) os.path.abspath()
+        直接获取 文件的 绝对路径.
+
+            os.path.abspath('filename')
+                return '绝对路径'
+
+        os.path.isabs()
+            检测是否是 绝对路径
+            os.path.isabs('路径')
+                return 布尔值
+
+
+    (2) os.path.exists()
+            检测 指定路径 (文件 或 文件夹) 是否真的存在.
+
+            os.path.exists('路径')
+                return 布尔值
+                
+
+  
+    (3) 路径的 拆分 与 合并.
+
+    1.os.path.split()
+        推荐方法,直接将路径拆为 路径部分 与 主体部分
+
+            os.path.split('路径')
+                return 路径 和 主体 组成的元祖. 
+
+
+    2.os.path.splitext()
+        将路径 拆分为 文件后缀 和 其他部分.
+
+        作用 : 获取 后缀.
+
+            os.path.splitext('路径')
+            os.path.splitext('dir/a.txt')
+                return 其他部分 和 后缀部分 组成元祖.
+
+        
+    3.os.path.basename()
+        获取 路径中的 主体部分.
+
+            os.path.basename()
+                return : 
+            
+            相对路径 返回 文件 或文件夹名.
+            绝对路径 返回 文件 或文件夹名.
+
+            参数 : 是一个路径.
+
+
+    4.os.path.dirname()
+        获取 路径中的 路径部分. 
+
+            os.path.dirname()
+                return :
+
+            相对路径 返回 . or .. or ../
+            绝对路径 返回 绝路 不含 文件或文件夹名 的部分.
+
+
+    5.os.path.join()
+        将两个路径合并到一起.
+
+            path1 必须是 dirname ,path2 必须是 basename
+            os.path.join(path1,path2)
+
+
+    (4)os.path.getsize()
+        通过路径 获取 文件的 字节数.
+
+            os.path.getsize('路径')
+                return 字节数
+
+        注 意 :
+            (1)文件必须存在.    
+            (2)只用于 获取 文件大小,如是文件夹 则数据不准确.
+
+
+    (5) 判 断 文 件 :
+
+        1.os.path.isdir()
+            检测是否是文件夹 
+
+            os.path.isdir('路径')
+                return 布尔值
+
+        2.os.path.isfile()
+            检测是否是文件
+
+            os.path.isfile('路径')
+                return 布尔值
+                
+        3.os.path.islink()
+            函数只linux有效
+
+            检测是 快捷方式文件.
+            os.path.islink()
+                return 布尔值
+
+        4.os.path.samefile()
+            检测 两个路径 是否指向 同一个 文件 或 文件夹.
+                os.path.samefile(路径1,路径2)
+                    return 布尔值
+
+  
+    (6) 时 间 信 息 相 关 :
+
+        1.os.path.getctime()
+            获取文件的 创建时间 create
+            
+                os.path.getctime()
+                    return 时间戳
+
+        2.os.path.getmtime()
+            获取文件的 最后修改时间 modify
+
+                os.path.getmtime()
+                    return 时间戳
+
+        3.os.path.getatime()
+            获取文件的 最后次访问时间 active
+
+                os.path.getatime()
+                    return 时间戳
+                    
+  
+    ()
+  
+  
+    ()
+  
+  
+  
+    ()
+  
+
+<>
+
+
+<>
+
+
+<>
+
+
+
+4.其 他 :
+
+<1> os.system()
+    借助 os.system() 使用 操作系统中的命令.               
+
+        os.system('su root')
+            提示输出密码,正确进入root用户.
+            exit 退出后 回到 python !!!
+        
+<>
+
+
+<>
+
+
+<>
+
+
+
+
+
+
+
+
+
+
+
+简介: OS模块负责程序与操作系统的交互.OS模块提供了一种方便的使用操作系统函数的方法. 
+
+    OS模块提供了多数操作系统的功能接口函数,当OS模块被导入后,它会自适应不同的操作系统平台,根据不同的平台进行相应的操作,在python编程时,经常和文件,目录打交道,所以离不了OS模块.
+
+
+  import os 
+
+os.remove('')  删除文件.
+
+os.rmdir(path)  删除指定目录.  只能删除空文件夹.
+
+os.mkdir(path)  创建文件夹.  
+
+os.getcwd()  get current work directory 获得当前工作目录的路径.
+
+os.path.abspath('.') 获取绝对路径,二者相同.
+
+os.listdir(path)  列表形式列出当前目录下所有文件和目录名,path参数可以省略.
+
+os.uname() 获取详细的系统信息.
+
+os.environ 查看在操作系统中定义的环境变量,全部保存在os.environ这个变量中.
+
+os.environ.get('key) 获取某个环境变量的值.
+
+os.listdir() 列出当前目录下的文件和文件夹.
+
+
+  import os.path
+
+os.rename('text.py','text.txt') 文件重命名.
+
+os.path.split('/usr/lib/text.txt') 把路径拆分为前路径,和最后一个路径.
+
+os.path.splitext('/usr/lib/text.txt') 可以直接得到扩展名.切分为两部分.
+

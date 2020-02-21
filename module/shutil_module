@@ -1,0 +1,159 @@
+shutil 高 级 文 件 操 作 模 块
+
+一. 导 入 模 块 :
+    
+    import shutil
+
+    help(shutil)
+
+
+注 意 :
+
+<1>删 除 操 作 都 不 进 入 回 收 站 
+
+
+二. 操 作 :
+
+
+<1> 文 件 复 制 相 关 内 容 : 
+
+文 件 :
+
+(1) copy() 复制文件
+        shutil.copy('src','dst')
+            return 目标路径
+    
+(2) copy2() 复制文件,保留原文件的信息(操作时间和权限等) 
+
+        shutil.copy('src','dst')
+            return 目标路径
+    
+
+(3) copyfile() 复制文件内容(打开旧文件之后,读取内容,在新建文件复制进去,要重命名)
+               如果 新位置的文件存在,则 覆盖其内容,用的是 w 模式.
+
+        shutil.copyfile('src','dst/文件名')
+            return 目标路径
+
+(4) copyfileobj() 用于复制文件内容,更灵活,可选 a 模式.
+       
+        shutil.copyfileobj(open('',模式),open('',模式))
+            return None
+
+        参数1 : 打开原文件,open,用 r 读取内容模式.
+        参数2 : 打开要写入的文件,open,用 a 模式表追加写入.
+
+
+(5) copystat() 拷贝文件信息(最后操作时间等)
+
+        shutil.copystat('src','dst')
+            return None
+
+(6) copymode() 拷贝文件权限
+        
+        shutil.copymode('src','dst')
+            return None
+
+(7) move() 剪切操作 文件 或 文件夹,同时 可改名.
+        
+        shutil.move('src','dst')
+
+
+文 件 夹 :
+
+(7) copytree() 拷贝整个文件夹
+
+        shutil.copytree('src','dst')
+                    来源文件夹 目标文件夹
+            return 目标路径
+
+(8) rmtree() 删除整个文件夹
+    不进入回收站.
+
+        shutil.rmtree('路径')
+            return None
+                    
+(9) move() 剪切操作 文件 或 文件夹,同时 可改名.
+        
+        shutil.move('src','dst')
+
+
+
+<2> 文 件 夹 归 档 操 作 :
+
+
+归 档 : 将一个 [文件夹] 的所有内容 转换成 一个文件(压缩文件).
+
+    作 用 : 方便 文件的 转移 或者 发送.
+
+    注 意 : 对 一个文件夹 操作.
+
+    解 包 : 解文件 为 文件夹.
+
+
+归档是 对文件夹操作, 压缩是 对 多个文件操作.不是一回事.
+
+
+压 缩 : 将 [多个文件] 使用或不使用压缩算法,添加到一个 压缩文件 的操作.
+
+    作 用 : 方便 文件的 转移 或者 发送.
+
+    注 意 : 对多个文件操作.
+
+    解 压 缩 : 解文件 为 多个文件. 
+
+
+
+(1) 归 档 :
+
+        格 式 简要 : 新归档路径目录名 格式 旧来源路径目录名 
+
+        格 式 : shutil.make_archive(base_name,format,root_dir)
+
+      参 数1 : base_name 当前需要创建的归档文件夹的路径和名称(没有后缀名的部分).
+
+        参 数2 : format 设置归档文件的后缀(zip和tar).
+
+        参 数3 : root_dir 设置需要归档的文件根目录.
+
+        示 例 : shutil.make_archive('/home/lf/file_name','zip','directory_name')
+
+        return : 目 标 路 径
+
+    查看当前系统 归档 支持的格式 : shutil.get_archive_formats()
+
+        return 列表 嵌套 元祖 .
+            元祖 内容 : 
+                文件格式名称 介绍
+
+(2) 解 包 :
+
+        格 式 简要 : 路径目录包名 解到路径目录名
+    
+        格 式 : shutil.unpack_archive()
+
+        参 数1 : 要解包的文件路径,带后缀名.
+
+        参 数2 : 要解到哪里,路径加 新包名字,这样可以 解到 文件夹里.
+
+        return : None
+
+示例 : shutil.unpack.archive('/home/lf/file_name.zip','/home/lf/directory_name')
+
+        查看当前系统 解包 支持的格式 : shutil.get_unpack_formats()
+
+        return 列表 嵌套 元祖 .
+            元祖 内容 : 
+                格式类型名称 对应的文件后缀 说明信息.
+
+
+
+
+三. 其 他 :
+
+<1> which()
+    查找命令的位置,同 系统 which 命令
+
+        shutil.which('命令')
+            return 路径
+

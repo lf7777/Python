@@ -1,0 +1,105 @@
+一. 导 包 : (python自带的模块)
+
+    import zipfile
+
+    help(zipfile)
+    
+
+二. 压 缩 步 骤 :
+
+
+自 我 总 结 :
+
+1. 创建压缩文件对象,创建文件,操作模式.
+2. 写入哪个文件,写入后叫什么.
+3. 关闭文件.
+
+
+<1> 创 建 压 缩 文 件 对 象, 并 且 打 开 :
+
+        参 数1 file : 压 缩 文 件 路 径 .
+
+        参 数2 mode : 设 置 操 作 文 件 的 模 式 .
+            r 读取 w 覆盖写入 a 追加 x 异或模式
+
+        参 数3 compression : 
+        
+        (1)zipfile.ZIP_STORED (no compression)
+            默认的无参数 不压缩. 
+        (2)zipfile.ZIP_DEFLATED (requires zlib)
+            
+        (3)zipfile.ZIP_BZIP2 (requires bz2)
+            
+        (4)zipfile.ZIP_LZMA (requires lzma).
+            
+
+        参 数4 allowZip64 : True or False
+
+        注 意 : 前两个参数只是 保存为压缩文件,第三个参数 进行实际大小压缩.
+
+        
+    格 式 : zip_01 = zipfile.ZipFile('newFileName.zip','模式')
+                return zip对象的信息
+
+
+
+<2> 将 文 件 添 加 到 压  缩 文 件 当 中 :
+       
+       参 数1 : filename 需 要 添 加 的 文 件.
+
+       参 数2 : arcname=None 在压缩文件中的路径和名称.
+
+       格 式 : 压缩文件对象.write('filename.后缀','在压缩文件中的路径+名+后缀')  
+
+<3> 关 闭 压 缩 文 件 :
+
+        压缩文件对象.close()
+
+
+
+三. 解 压 缩 步 骤 :
+
+
+<1> 打 开 压 缩 文 件 :
+
+        创 建 压 缩 文 件 对 象.
+        
+        格 式 : zip01 = zipfile.ZipFile('压缩文件目录及名.zip','r')
+
+        注 意 : 操作模式必须为 r 读取模式.
+
+
+<2> 解 压 压 缩 文 件 :
+
+    extract : 提取
+
+        (1) 解 压 单 个 文 件 : extract()
+            
+            zip01.extract('压缩文件中的文件路径','解压的目标路径')
+
+                return 解压的文件路径
+
+        (2) 解 压 全 部 文 件 : extractall()
+
+            zip01.extractall('解压的目标路径')
+
+                无 return
+                
+
+<3> 关 闭 文 件 :
+        
+        zip01.close()
+
+
+
+四. 压 缩 指 定 目 录 下 的 所 有 文 件 到 指 定 压 缩 文 件 :
+
+import os,zipfile
+
+f = zipfile.ZipFile('/home/lf/practice.zip','w')
+
+for i in os.listdir():
+
+    f.write(i,i)
+
+f.close()

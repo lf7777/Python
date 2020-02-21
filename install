@@ -1,0 +1,47 @@
+  本文介绍在Ubuntu 18.04/16.04系统上安装Python 3.8的两种不同方法，第一个选择是从Deadsnakes PPA安装deb软件包，第二个选择是从源代码构建，当前Python 3.8在Ubuntu的默认存储库中不可用。相同的步骤适用于Ubuntu 16.04和任何基于Ubuntu的发行版，包括Kubuntu、Linux Mint和Elementary OS，其他发行版请参考在Fedora 29系统中安装Python 3.8 alpha的方法。Python 3.8是Python语言的最新主要版本，它包括许多新功能，例如赋值表达式、仅位置参数、f字符串支持等等，参考Python 3.8.0发布，已提供Python-3.8.0.tgz下载，附更新功能。
+
+  使用Apt在Ubuntu 18.04上安装Python 3.8
+使用apt在Ubuntu 18.04上安装Python 3.8是一个相对简单的过程，只需几分钟：
+1、以root用户或具有sudo访问权限的用户身份运行以下命令，以更新软件包列表并安装必备组件：
+$ sudo apt update
+$ sudo apt install software-properties-common
+2、将Deadsnakes PPA添加到系统的来源列表中：
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+参考：Ubuntu 18.04/16.04/Debian 9上安装add-apt-repository的方法。
+出现提示时，按Enter继续：
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+注：意思是按[ENTER]继续，或按Ctrl-c取消添加。
+3、启用存储库后，请使用以下命令安装Python 3.8：
+$ sudo apt install python3.8
+4、通过键入以下命令验证安装是否成功：
+$ python3.8 --version
+返回信息：
+Python 3.8.0
+至此，Python 3.8已安装在Ubuntu 18.04系统上，你可以开始使用它了。
+
+
+从源代码在Ubuntu 18.04上安装Python 3.8
+在本节中，我们将说明如何从源代码编译Python 3.8。
+1、更新软件包列表并安装构建Python所需的软件包：
+$ sudo apt update
+$ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+2、使用wget从Python下载页面下载最新版本的源代码，或者访问 https://www.python.org/ 网站下载：
+$ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+在选写本文时，最新版本是3.8.0。
+3、下载完成后，解压缩下载的文件：
+$ tar -xf Python-3.8.0.tgz
+4、切换到Python源目录并执行configure脚本，该脚本执行许多检查以确保系统上的所有依赖项都存在：
+$ cd Python-3.8.0
+$ ./configure --enable-optimizations
+--enable-optimizations选项通过运行多个测试来优化Python二进制文件，这会使构建过程变慢。
+5、启动Python 3.8构建过程：
+$ make -j 8
+为了加快构建时间，请修改-j以使其对应于处理器中的内核数，你可以通过键入nproc查找编号。
+6、构建过程完成后，输入以下命令安装Python二进制文件：
+$ sudo make altinstall
+不要使用标准的make install，因为它将覆盖默认的系统python3二进制文件。
+7、Python 3.8已安装并准备使用，通过运行以下命令进行验证：
+$ python3.8 --version
+输出应显示Python版本：
+Python 3.8.0
+至此，你已在Ubuntu 18.04计算机上安装了Python 3.8，然后可以开始开发Python 3项目了。

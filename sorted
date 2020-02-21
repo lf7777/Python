@@ -1,0 +1,14 @@
+sorted()是高阶函数,主要体现在可以是一个可以利用其他函数进行操作的函数.
+key = ......
+key = abs 绝对值
+key = str.lower 按照首字母的顺序.
+reverse = True 反转.
+
+x = [36,5,-12,9,-21]
+z = sorted(x)默认从小到大排序.升序.
+
+z=sorted(x,reverse=True) 按降许,大到小.
+
+L=[('b,2')('a,1')('c,3')]
+z = sorted(L,key=lambda x:x[1])
+按照第二个参数排序.

@@ -1,0 +1,4 @@
+from functools import partial  导入偏函数
+
+偏函数就是通过
+partial(函数名,参数...)  提前传参数进去.

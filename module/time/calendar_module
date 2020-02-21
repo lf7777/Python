@@ -1,0 +1,270 @@
+一. 导 包 :
+
+    import calendar  日历
+
+    help(calendar)
+
+    年 月 日 相 关 
+
+注 意 : 0 代表星期一, 6 代表星期日.
+
+
+二. 包 大 体 包 括 : 
+
+基 本 函 数
+
+Calendar 类
+
+    itermonthdates()    返回指定年月的信息的生成器
+    itermonthdays()     返回指定年月的信息的生成器
+    itermonthdays1()    返回指定年月的信息的生成器
+    itermonthdays2()    返回指定年月的信息的生成器
+    itermonthdays3()    返回指定年月的信息的生成器
+    itermonthdays4()    返回指定年月的信息的生成器
+    monthdatescalendar()返回指定年月的信息
+
+
+HTMLCalendar 类
+
+    支持 网页的 日历 开发 相关功能.
+
+LocaleHTMLCalendar 类(暂不支持)
+
+下面两个类,在基本的函数中已经包含了.
+
+TextCalendar 类
+
+LocaleTextCalendar 类
+
+
+三. 基 本 函 数 : 
+
+
+<1> calendar()
+    获取指定 整年 的日历 的字符串.
+        偏向于 展示.
+
+        calendar.calendar(年份,默认参数:w=2,l=1,c=6,m=3) 
+
+            w : 设置两个 日期间的间隔空格 字符串.
+            l : 一个星期所占的行数, 行高.
+            c : 两个月份之间的 空格.
+            m : 一行显示的 月份数量.
+
+        示 例 : calendar.calendar(2018)
+
+    (2) prcal()
+
+        普通 calendar()获取的字符串,没有转义.
+
+        prcal() print calendar 完成了打印功能,简写法,其他一模一样.
+
+
+<2> month()
+    获取指定 年份中某个月份 的日历 的字符串.
+        偏向于 展示.
+
+        calendar.month(年份,月,w=2,l=1)
+            
+            w : 设置两个 日期间的间隔空格 字符串.
+            l : 一个星期所占的行数, 行高
+
+        calendar.month(2019,5)
+
+    (2)prmonth()
+
+        普通 month()获取的字符串,没有转义.
+
+        prmonth() print month 完成了打印功能,简写法,其他一模一样.
+
+
+<3> monthcalendar() 
+    获取指定 月份 的日历 的嵌套列表.
+        偏向于 应用列表做事情.
+
+        calendar.moncalendar()
+
+
+<4> weekday()
+    获取指定 年月日的 星期数.
+
+        calendar.weekday(2019,1,2)
+
+            return 2 (0~6的数字)
+            2 表示周三
+
+
+<5> timegm()
+    通过 年 月 日 小时 分钟 秒 0 0 0 组成的 元祖 或 列表 获取时间戳.
+
+        calendar.timegm((2020,1,2,12,22,22,0,0,0))
+        calendar.timegm([2020,1,2,12,22,22,0,0,0])
+
+            return 时间戳
+
+
+<6> isleap()
+    检测指定年份是否是闰年.
+
+    闰年定义:
+        平年2月28天,闰年2月29天.
+        (1)如果不是100的整数倍,只需要是4的整数倍就是闰年.
+        (2)如果是100的整数倍,必须是400的整数倍才是闰年.
+        
+        calendar.isleap(2000)
+            return True or False
+
+
+<7> leapdays()
+    检测指定 参数 区间内 有几个闰年.
+
+        calendar.leapdays(2000,2016)
+            左闭右开
+
+            return 4
+
+
+<8> monthrange()
+    获取 一个月 的信息 元祖.
+
+        calendar.monthrange(2019,5)
+
+            return (2,31)
+
+        元祖 第一个元素 : 这年这月的1号 是星期几. 2 就是星期3.
+
+             第二个元素 : 这个月 的总天数 是多少.
+
+
+<9> firstweekday()
+    获取 每周 开始的 日期.
+
+        calendar.firstweekday()
+
+
+四. Calendar() 类
+
+    import calendar
+
+    help(calendar.Calendar)
+
+实 例 化 对 象 : rl = calendar.Calendar()
+
+<1> rl.itermonthdates()
+    返回指定 年份中的 月份 的信息的生成器.
+
+        calendar.Calendar().itermonthdates(2020,2)
+
+    步骤 :
+
+        1.实 例 化 :
+
+            C = calendar.Calendar()
+
+        2.调 用 类 中 的 方 法 :
+
+            res = C.itermonthdates(2020,2)
+
+        3.遍 历 生 成 器 :
+
+            for i in res: 
+                print(i)
+
+        4.return 时间信息对象 该年-该月-几号
+            
+                    2020-02-28
+                    2020-02-29
+
+
+<2> rl.itermonthdays()
+
+    calendar.Calendar().itermonthdays(2020,3)
+
+    步骤 同 (1)
+
+        遍历的 return : 几号
+
+        返回值是 数字类型.
+
+                        26
+                        27
+                        28
+                        29
+
+
+<3> rl.itermonthdays2()
+    
+    同 (1) :
+
+        遍历的 return : (几号,周几)
+
+        返回值 是 元祖.
+
+                        (6, 3)
+                        (7, 4)
+                        (8, 5)
+
+
+<4> rl.itermonthdays3()
+
+    同 (1) :
+
+        遍历的 return : (年,月,几号)
+
+        返回值 是 元祖.
+
+                        (2020, 2, 26)
+                        (2020, 2, 27)
+                        (2020, 2, 28)
+
+
+<5> rl.itermonthdays4()
+    
+    同 (1) :
+
+        遍历的 return : (年,月,几号,周几)
+
+        返回值 是 元祖.
+
+                        (2020, 2, 27, 3)
+                        (2020, 2, 28, 4)
+                        (2020, 2, 29, 5)
+
+
+<6> rl.monthdatescalendar()
+
+    calendar.Calendar().monthdatescalendar(2008,10)
+
+        return 列表里 嵌套列表,总体的内容是该月的 日期时间格式的元祖.
+            在日历上 每一行的信息 在一个列表内由元祖构成,n个行组成该月的.
+
+            示 例 : [[datetime.date(2008,10,5),(2008,10,6)],[],[]]  
+    
+
+<7> rl.monthdays2calendar()
+
+    calendar.Calendar().monthdays2calendar(2008,10)
+
+        return [[(几号,周几),(几号周几)],[第二行(几号,周几)]]
+
+
+五. HTMLCalendar() 类
+
+    import calendar
+
+    help(calendar.HTMLCalendar)
+
+实 例 化 对 象 : rl = calendar.HTMLCalendar()
+
+
+<1> rl.formatyear(参数为年)
+    得到 该年 的 HTML标签 代码.
+
+<2> rl.formatmonth(参数为:年,月)
+    得到 指定年中某月 的 HTML标签 代码.
+
+<3> rl.formatyearpage() 
+    获取 该年的 日历,结果为HTMLdiamante组成,可以指定 CSS 样式.
+
+
+
