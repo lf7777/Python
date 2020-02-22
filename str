@@ -325,7 +325,12 @@ print('%d'%content)
     负号 则不用 挨着%后加 -
 
 
+
 2. format 函 数 : 格式化操作(3.6以上版本)
+
+    格 式 (1) : res = '{}'.format(值)  
+        
+        等于将值 格式化为 字符串.
 
 
 <1> 单个参数 :
@@ -428,3 +433,21 @@ print(sep='-') sep 表示间隔字符.
     print(str)
     print(R'\b\t')
 
+
+
+六. 字节流 字符串 转换 :
+
+<1> encode()
+    将字符串 转为 字节流.
+
+        str.encode()
+
+            return b'字节流'
+
+
+<2> decode()方法用于转为为str.
+    将 字节流 转为 字符串.
+
+        bytes.decode()
+
+            return '字符串'

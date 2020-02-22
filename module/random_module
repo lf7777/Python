@@ -1,0 +1,104 @@
+一. 导 包 :
+
+    import random
+
+    help(random)
+
+
+
+二. 函 数 :
+
+总 结 :
+
+choice()       从序列中 随机 获取某个值.
+
+randrange()    从指定区间 随机 获取某个整数.
+
+shuffle()      将 列表 中的元素 随机打乱,修改原列表.
+
+random()       随机从 0 ~ 1 之间 随机 获取 某个浮点数.
+
+uniform()      从指定区间 随机 获取 某个浮点数.
+
+
+
+<1> choice()
+    随机获取 外层序列 中的某个元素.
+
+        random.choice(序列:有序容器,列表,元祖)
+
+            return 某个值
+
+    示 例 : random.choice([1,2,3,'a','b']) 
+
+
+<2> randrange()
+
+    随机获取指定范围内的整数(左闭右开)
+        
+        random.randrange(开始值,结束值,跳步值)
+
+            return 指定区间内的 数值.
+
+    示 例 : random.randrange(1,10)
+
+    注 意 : 参数 必须为 整数.
+
+            可设置 跳步值.
+
+
+<3> shuffle()
+    随机打乱 列表 中的值.
+
+        random.shuffle(有且只有列表)
+
+            修改原列表.   
+
+    示 例 : random.shuffle([1,2,3,4,5])
+
+
+<4> randint()
+    随机产生一个 指定范围内的 随机整数.(闭区间,左右都包括)
+
+        random.randint(2,3)
+
+            return 2
+
+            return 3
+
+    注 意 : 左右都包括.
+
+
+<5> uniform()
+    获取指定范围的 随机小数.(左闭右开)
+
+        参 数 :a参数可为 浮点数,整数都可以.
+
+        random.uniform(3.4,10.5)
+
+            return 9.6212312321...
+
+        注 意 : 不可设跳步值.
+
+
+<6> random()
+    获取随机 0~1 之间的 小数(左闭右开)
+
+        random.random()
+
+            return 随机 0~1 之间的小数.
+
+    示 例 : random.random()
+        
+            return 0.721241..... 很多位的 浮点数.
+
+
+
+
+<>
+
+
+<>
+
+
+<>

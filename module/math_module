@@ -1,0 +1,96 @@
+一. 导 包 :
+
+    import math
+
+    help(math)
+
+
+
+二. 函 数 :
+
+
+<1> ceil()    ceil : 天花板
+    浮点数 向 下一个整数 取整,并非四舍五入.(对比 round())
+
+        math.ceil(数值)
+            
+            return 整型
+
+    示 例 : ceil(4.3) = 5,ceil(4.6) = 5,ceil(4.0) = 4,ceil(4) = 4
+
+
+<2> floor()    floor : 地板
+    浮点数 向 当前整数 取整,并非四舍五入.(对比 round())
+
+        math.floor(数值)
+
+            return 整型
+
+    示 例 : floor(4.3) = 4,floor(4.6) = 4,floor(4.0) = 4,floor(4) = 4
+
+
+<3> pow()
+    计算数值的 N次方(返回浮点数,对比 内建的pow())
+
+        math.pow(数字类型,数字类型)
+
+            return 都浮点数, 而 内建的pow()整数平方是整数,牵扯小数为小数.
+
+    示 例 : math.pow(4,4) = 256.0
+
+
+<4> sqrt() 
+    开方 运算(返回 浮点数)
+
+        math.sqrt(数值)
+
+            return 浮点数
+
+    示 例 : math.sqrt(4) = 2.0
+
+
+<5> fabs()
+    计算一个数值的绝对值(返回 浮点数,对比内建 abs())
+
+        math.fabs(数值)
+
+            return 浮点数,而内建的 abs() 牵扯小数才为小数.
+
+    示 例 : math.fabs(4) = 4.0
+
+
+<6> fsum()
+    将一个容器数据中的数据 进行求和运算(返回浮点数,对比sum())
+
+        math.fsum(容器数据,列表,元祖,集合,字典,字符串不行)
+
+            return 都浮点数,而 sum() 牵扯小数才小数.
+
+
+<7> modf()
+    将一个数值 拆分为 整数 和 小数 两部分 组成元祖.
+
+        math.modf(数值)
+        
+            return (小数部分浮点数,整数部分浮点数)
+
+    示 例 : math.modf(2.4) = (0.3999999999999,2.0)
+
+
+<8> copysign()
+    将第二个参数的 正负号 覆盖 第一个参数的 正负号, + 不写.(返回浮点数)
+
+        math.copysign(数值1,数值)
+
+            return 数值1 的浮点数
+
+    示 例 : math.copysign(4,-3) = -4.0
+
+
+<9> math.pi
+    得到 pi 圆周率.
+
+        math.pi
+
+            return 3.1415926......
+

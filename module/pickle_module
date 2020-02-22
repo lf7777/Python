@@ -1,0 +1,88 @@
+一. 导 包 :
+
+    import pickle
+
+    help(pickle)
+
+
+
+二. 普通序列化 和 写入文件的 序列化 :
+
+
+<1> dumps()
+    把任意对象 序列化 成一个 bytes(字节流)
+
+        pickle.dumps(任意数据)
+
+            return b'x80\x95....x01a.'
+
+    示 例 : pickle.dumps({1:2,2:3})
+        
+            return b'x80\...x85.'
+
+    注 意 : 参数 字符串 列表 字典 元祖 集合 等等都可以.
+
+
+<2> loads()
+    把字节流 反序列化.
+
+        pickle.loads(bytes)
+
+            return 任意数据.
+
+
+写 入 到 文 件  中 :
+
+<1> dump()
+
+简 称 : 写啥 到文件对象.
+
+    将bytes 写入到 文件对象.
+        dump(任意数据,文件对象)
+
+    格 式 : pickle.dump('内容',文件对象)
+
+        fw = open('text','wb')
+
+        pickle.dump(['都是啊大的算法'],fw)
+
+        fw.close()
+
+    注 意 : 
+
+        (1) dump() 的内容参数,为任意数据.
+        
+        (2)序列化ascii编码内的内容,为原内容.其他乱码.
+                
+                例 如 : '[]abcd123' 序列化后还是原内容.
+
+        (3) with open('文件','模式') as 变量 :
+
+                变量 是文件对象.
+
+
+<2> load()
+
+简 称 : 读 文件对象.
+
+    把 文件对象 中的内容拿出来,反序列化成原来的数据. 
+        load(文件对象)
+
+    格 式 : pickle.load(文件读对象)
+
+        fr = open('文件','rb')
+
+        pickle.load(fr)
+
+            return 原来的数据.
+
+        注 意 : 可用 fr.seek(0) 来重新 读取. 
+        
+
+
+<>
+
+
+<>
+
+

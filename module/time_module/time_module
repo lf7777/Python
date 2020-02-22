@@ -24,7 +24,7 @@ UTC 时间 :
 
     help(time)
 
-    小时 分钟 秒 相关.
+    时间的 访问 转换 相关.
 
 
 二. struct_time() 标准时间类 仅此一个类.
@@ -68,7 +68,16 @@ gmtime()utc             strftime()
 
 时间戳 直接 转 字符串 : ctime()
 
-直接 获取 当前的 本地时间戳 : time()
+
+直接获取 当前的 一个时间戳 :
+
+<1> time()
+
+        time.time()
+
+            return 时间戳
+
+再通过 时间戳 转 本地元祖 或 utc元祖.
 
 
 时间戳 转 元祖:
@@ -93,7 +102,7 @@ gmtime()utc             strftime()
 
         
 <2> gmtime()
-    时间戳 转为 ufc 时间元祖.
+    时间戳 转为 ufc时间元祖.
     获取 指定 时间戳 的 utc时间 元祖格式.
 
         参数默认是 当前时间的 时间戳.
@@ -125,7 +134,7 @@ gmtime()utc             strftime()
 时间元祖 转 utc时间戳 :
 
 <1> timegm() 
-    根据 时间元祖 转 utc 时间戳 :
+    根据 时间元祖 转 utc时间戳 :
     
     import calendar
 
@@ -163,13 +172,8 @@ gmtime()utc             strftime()
 
             return 本地时间 'Thu Jan 1 08:00:00 1970'
 
-直接获取 当前的 本地时间戳 :
 
-<1> time()
 
-        time.time()
-
-            return 本地时间戳
 
 
 四. 格 式 化 输 出 时 间 字 符 串 :
@@ -221,16 +225,66 @@ time.strftime('%Y年%m月%d日 %H:%M:%S',time.localtime(time.time()))
             (4)间隔符号 一个不能多 一个不能少.
             (5)可用 变量代替.
 
-<3>
 
 
-<9>
+
+五. 程 序 与 时 间 相 关 :
 
 
-<10>
+<1> sleep()
+    程序等待.
+
+        参 数 : 秒数,多少位小数 均可,不能为负数.
+
+        time.sleep(正数值 的 秒数)  
 
 
-<11>
+<2> perf_counter()    perf counter : 性能 计数器
+    cpu计时器, 用于计算 代码的执行时间.
+
+    注 意 : 单位是 秒数.
+            如果添加 sleep,3.8linux版本perf_counter()不会将sleep()时间计算在内.
+
+                但不同版本 不同操作系统,有的perf_counter会将时间计算在内.
+
+            脚本文件的 运行速度 要比 终端 快 3倍左右.     
+
+        time.perf_counter()
+
+    示 例 :
+
+        def t():
+            start = time.perf_counter()
+            for i in range(100):
+                print(i)
+            end = time.perf_counter()
+            print(end-start)
+        t()
+
+        结果为 0.002.... 秒.
+
+
+<3> clock()    3.8版本 已经移除.
+    获取 cpu时间,主要用于 计算 代码执行时间.
+
+    注 意 : 单位是 秒数.
+            如果添加 sleep() 则 clock() 将sleep()时间 计算在内.
+
+        time.clock()
+
+    示 例 :  
+
+        def t():
+            start = time.clock()
+            for i in range(100):
+                print(i)
+            end = time.clock()
+            print(end-start)
+        t()
+
+        结果为 0.002.... 秒.
+
+<4>
 
 
 <12>
