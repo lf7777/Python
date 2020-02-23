@@ -95,7 +95,7 @@ LocaleTextCalendar 类
 
 
 <5> timegm()
-    通过 年 月 日 小时 分钟 秒 0 0 0 组成的 元祖 或 列表 获取时间戳.
+    通过 时间元祖 或 列表 获取时间戳.
 
         calendar.timegm((2020,1,2,12,22,22,0,0,0))
         calendar.timegm([2020,1,2,12,22,22,0,0,0])
