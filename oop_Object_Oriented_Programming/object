@@ -92,14 +92,7 @@
             (1) 对象.属性名 = 属性值
         
         
-        <4> 删 除 :_.py", line 5, in <module>
-    from apport.report import Report
-  File "/usr/lib/python3/dist-packages/apport/report.py", line 30, in <module>
-    import apport.fileutils
-  File "/usr/lib/python3/dist-packages/apport/fileutils.py", line 23, in <module>
-    from apport.packaging_impl import impl as packaging
-  File "/usr/lib/python3/dist-packages/apport/packaging_impl.py", line 24, in <module>
-
+        <4> 删 除 :
 
             (1) 不可能删除,除非对象是 没加括号实例化的.
 
