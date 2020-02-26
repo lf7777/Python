@@ -1,0 +1,54 @@
+__format__
+
+
+
+    (1) 触 发 时 机 : format(对象)时.自动调用.
+
+
+
+    (2) 作 用 : 通过 format(对象)对对象进行操作,实现 格式化类中的数据.
+
+
+
+    (3) 参 数 : self 代表对象本身必须传.
+
+                另一个参数必须传!!! 代码格式化的方式.
+
+
+
+    (4) 返 回 值 : 必须是!!! 字符串.
+
+
+
+    (5) 注 意 事 项 : __format__ 有两个参数.
+
+                      返回值 必须是 字符串.
+
+
+
+class Girl:
+    name = '初墨'
+
+    sex = '女'
+
+    def shopping(self):
+        print('购物')
+
+    def __format__(self,arg):
+        if arg[1] == '>':
+            newname = self.name.rjust(int(arg[2:]),arg[0])
+            return newname
+        elif arg[1] == '^':
+            newname = self.name.center(int(arg[2:],arg[0]))
+            return newname
+        elif arg[1] == '<':
+            newname = self.name.ljust(int(arg[2:],arg[0]))
+            return newname
+        else:
+            return ''
+
+
+xcm = Girl()
+
+print('我的女朋友叫{:0>10}'.format(xcm))
+

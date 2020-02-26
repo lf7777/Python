@@ -1,0 +1,42 @@
+__getattr__    
+
+
+    <1> 触 发 时 机 : 访问 不存在的对象成员 的时候自动触发.
+
+
+
+    <2> 作 用 : 访问的成员 不存在时执行 __getattr__魔术方法.返回值由 return 定.
+
+                可以理解为 为不存在的成员 定义一个值.
+
+                (2) return self.某个存在的成员.这样则 访问不存在的成员时 
+
+                        永远返回某个成员.
+
+
+    <3> 参 数 : 对象本身 和 调用的对象成员.
+
+
+
+    <4> 返 回 值 : 可有可无
+
+
+
+    <5> 注 意 事 项 : 成员不存在时 会触发.
+
+
+
+class Test:
+
+    def __init__(self,name):
+
+        self.name = name
+
+    def __getattr__(self,item):
+        print('getattr方法被触发')
+        return '成员不存在'
+
+
+one = Test('雪莲花花花花胡')
+
+print(one.name2)

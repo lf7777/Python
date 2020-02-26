@@ -1,0 +1,65 @@
+__setattr__    在用户修改 成员的时候 做一些限制.
+
+
+    <1> 触 发 时 机 :修改与添加 成员时候 自动触发.
+        
+                    初始化一个成员就触一次,三个3次
+    
+    
+    
+    <2> 作 用 : 可以 限制 或者 管理对象成员你的添加与修改操作. 
+
+
+    
+    <3> 参 数 : (self(对象本身) attrname(成员名) value(成员值))
+    
+    
+    
+    <4> 返 回 值 : 无
+    
+    
+    
+    <5> 注 意 事 项 : 
+
+            (1) def __setattr__(self,attrname,value) 里的原内容为:
+
+                    object.__setattr__(self,attrname,value)
+
+                    表示 所有对象都可以自行修改 成员 和 值.
+
+            (2) 设置某个内容 不能被修改 :
+
+                    原 理 : 当前对象没有,在类中寻找.
+
+                    将其从 对象初始化方法 提到类中.
+                    在 __setattr__ 里判断 当字符串为 这个成员时,
+                    不进行 object.__setattr__(self,attrname,value)
+                    
+            (3) 在当前魔术方法中禁止使用当前对象: 成员名=值 的方式,会触发递归.
+
+
+class Test:
+
+    age = 18
+
+    def __init__(self,name):
+
+        self.name = name
+
+    def __setattr__(self,attrname,value):
+        return None
+
+        object.__setattr__(self,a,b)
+        if attrname == 'age':
+            pass
+        else:
+            object.__setattr__(self,attrname,value)
+
+
+one = Test('佐助')
+
+one.name = '鸣人'
+
+one.age = 22
+
+print(one.name)

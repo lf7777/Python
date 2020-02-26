@@ -1,0 +1,66 @@
+__getattribute__    
+
+    
+    在本类中 重载了 object.__getattribute__,但是 return 当前对象.成员 还会再次
+
+    本身截断,所以用最 基本类里的 object.__getattribute__(self,'成员名') 则不会
+
+    递归触发,这样 就能用 变量接收到 调用的结果,对结果进行操作,并返回对象.
+
+
+    <1> 触 发 时 机 : 当前对象 执行 调用成员的操作 时触发.(无论成员是否存在)
+
+
+    <2> 作 用 : __getattribute__() 可以对调用的操作 进行修饰,返回值为对象调用的结果.
+
+                可以在用户获取数据的时候进行 数据处理等操作.
+
+
+
+    <3> 参 数 : __getattribute(self,接收调用 对象成员的名称 字符串格式)
+
+                print(形参) return 具体的成员名.
+    
+                self 必须
+
+                第二个参数为 接收要调用的 成员名称 的形参.
+
+                object.__getattribute(self,接收调用的 成员的 字符串格式)
+
+
+    <4> 返 回 值 : 有 不设定返回 None.
+
+
+
+    <5> 注 意 事 项 :
+
+        (1) __getattribute__ 截断了调用成员的操作. 
+        
+            __getattribute__ 的 return 为调用成员的返回值.
+
+        (2) 不能直接 return self.成员,因为 self.成员 = 当前对象调用成员,还会被
+        
+            __getattribute__ 截断,需要添加 object.__getattribute__() 代替当前
+            
+            当前对象获取一次 成员.
+
+
+
+class Test:
+
+    def __init__(self,name):
+
+        self.name = name
+
+    def __getattribute__(self,item:存的是调用成员的字符串):
+
+        result = object.__getattribute__(self,item)
+
+        result = result.replace(result[1:-1],(len(result)-2)*'*')
+
+        return result
+
+
+one = Test('雪莲花花花花胡')
+
+print(one.name)

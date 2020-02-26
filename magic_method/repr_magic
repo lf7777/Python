@@ -1,0 +1,61 @@
+__repr__     设置 repr(对象) 所返回的信息.
+
+
+    要到交互模式测试,因为脚本文件想看到结果,只能是打印,看到的永远是用户看到的.
+
+
+
+    <1> 触 发 时 机 : 
+
+            (1) 如果只有 __repr__ 则会把 __repr__ 赋值给 __str__
+
+                1.print() 以 给用户 看的格式.
+
+                2.str() 看到的 也是 repr的内容,因被赋值了.
+
+                3.repr() 以给 程序员 看的格式.
+
+            (2) 如果 __repr__ 和 __str__ 都自定义了,则各自显示各自的,不会赋值.
+
+                1.print()脚本文件看到的都是 相同的客户格式.(触发__str__)
+
+                2.str() 看到的 __str__ 的原样return.(保留原样\n)
+
+                3.repr() 看到的 __repr__ 的原样return(保留原样\n)
+
+
+
+    <2> 作 用 : 可以设置 repr函数操作对象的结果.
+
+
+
+    <3> 参 数 : 除了 self 无其他草书.
+
+
+
+    <4> 返 回 值 : 必须是字符串.
+
+
+
+    <5> 注 意 事 项 :
+
+            (1) 所有类 都默认有这句 代码句 :
+
+                    __str__ = __repr__
+
+                所以 重载 object类里的 repr 等于 重载 str
+
+
+class Fruits:
+
+    def __init__(self,fruits):
+
+        self.fruits = fruits
+
+#    def __str__(self):
+
+#        return 'str\n触发'
+
+    def __repr__(self):
+
+        return 'repr触发\n了'

@@ -68,7 +68,7 @@
 
                 原 理 : 利用 super()类查找 MRO列表的 上一个类. 
 
-                        new = super() new.方法() 等同于 :
+                        a = super()  等同于 :
 
                         super().方法
                       

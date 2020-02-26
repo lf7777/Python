@@ -1,0 +1,46 @@
+__str__    定义打印 或 字符串格式转换 对象 显示的内容的.
+
+
+    <1> 触 发 时 机 : 使用 print 打印对象的时候触发.
+
+
+
+    <2> 作 用 : 可以定义打印对象显示的内容.
+
+
+
+    <3> 参 数 : 只有 self 无其他.
+
+
+
+    <4> 返 回 值 : 必须有,且比如是字符串类型.
+
+
+
+    <5> 注 意 事 项 : 除了 print 之外,使用 str()转换数据的时候也会触发.
+
+
+
+格 式 :
+
+    def __str__(self):
+        
+        return '字符串'
+
+    
+    自己写时 重载了 object 里的 __str__ ,必须个返回值.
+
+
+class Fruits:
+
+    def __init__(self,fruits):
+
+        self.fruits = fruits
+
+    def __str__(self):
+
+        return self.fruits+' 对象实例化成功'
+
+banana = Fruits('banana')
+
+print(banana)

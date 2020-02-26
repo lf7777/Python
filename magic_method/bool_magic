@@ -1,0 +1,38 @@
+__bool__    bool(类/对象)    然后在类中 自定义 如何返回 True or False   
+
+
+    <1> 触 发 时 机 : bool(类/对象) 时自动触发.
+
+
+
+    <2> 作 用 : 更改 bool(类/对象) 返回是 True or False
+
+                用于检测对象 成员信息.
+
+
+
+    <3> 参 数 : 除 self 无其他.
+
+
+
+    <4> 返 回 值 : 必须是!!! True or False
+
+
+
+    <5> 注 意 事 项 :
+
+
+
+无 __bool__时:
+class a:
+    pass
+t = a()
+bool(t)
+    默认都是return True
+
+有 __bool__时:
+class a:
+    def __bool__(self):
+        return False
+t = a()
+    则return False
