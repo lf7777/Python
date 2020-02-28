@@ -19,9 +19,21 @@
 
 三. 格 式 :
 
-    (1) 必须在 类之前声明.
+    描 述 符 的 组 成 :
+
+        临时变量    自己定义
+        __get__     管理获取值
+        __set__     管理设置值
+        __delete__  管理删除值
+
+
+
+    <1> 格式1:描述符的类在被管理的类上面写: <详见practice/descriptor_01.py>
 
 class Descriptor:
+    
+    def __init__(self):
+        self.tmpvar = ''
 
     def __get__(self,obj,cls):
 
@@ -29,11 +41,43 @@ class Descriptor:
 
         pass
 
-    def __set__():
+    def __set__(self,obj,value:要设置的值):
         pass
 
-    def __delete__():
+    def __delete__(self,obj):
         pass
+
+class Test:
+
+    name = Descriptor()
+
+
+
+    <2> 格式2:描述符融合到被管理的成员类当中: <详见practice/descriptor_02.py>
+
+    属性成员名 = property(管理获取值函数,管理设置值函数,管理删除之函数,doc='')
+
+            (1)使用 property() 函数.
+
+            (2)创建临时变量.
+
+            (3)get和delete有一个self参数,set另一个是要设置的值.
+
+            (4)把三个普通函数作为参数传给 property()
+
+
+    <3> 格式3:描述符融合到被管理的成员类当中: (使用装饰器语法组合)
+
+            <详见practice/descriptor_03.py>
+        
+            @property
+            def 属性名(self)
+
+            @属性名.setter
+            def 属性名(self,value)
+
+            @属性名.deleter
+            def 属性名(self)
 
 
 
@@ -51,7 +95,7 @@ class Descriptor:
         (3) 参数: def__get__(self:描述符对象,obj:实际类对象,cls:实际类)
 
 
-        (4) 返回值:可有可无,无return返回None
+        (4) 返回值:无返回值则属性没有值.?可有可无,无return返回None
 
 
         (5) 注意事项:无.
@@ -68,7 +112,7 @@ class Descriptor:
         (3) 参数: def__set__(self:描述符对象,obj:实际类对象,value:修改的值)
 
 
-        (4) 返回值: 是 <执行过程> 的方法,不需要返回值
+        (4) 返回值: 是 <执行过程> 的方法,需要返回值
 
 
         (5) 注意事项: 设置值的时候一定要设置当前描述符对象的临时变量.

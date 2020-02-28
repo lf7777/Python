@@ -27,6 +27,7 @@ __format__
 
 
 class Girl:
+
     name = '初墨'
 
     sex = '女'

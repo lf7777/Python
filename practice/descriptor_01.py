@@ -1,7 +1,7 @@
 class Descriptor:
 
     def __init__(self):
-        self.tmpvar = ''
+        self.tmpvar = '匿名用户'
 
     def __get__(self,obj,cls):
         res = self.tmpvar.replace(self.tmpvar[1:-1],'*')
@@ -35,7 +35,7 @@ class Email:
 
 mail = Email()
 
-mail.username = 'lovemybaby'
+#mail.username = 'lovemybaby'
 
 print(mail.username)
 
