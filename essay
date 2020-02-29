@@ -66,3 +66,14 @@
 <13> 收集参数 收集的是 元祖. *parameter 
 
      收集关键字参数 收集的是 字典. **arguments
+
+<14> in or not in 只能作用在可迭代的对象上.
+
+        is or is not 则不是
+
+<15> 为包模块添加 默认搜索路径(永久) :
+
+     1. 在 /usr/local/lib/python3.8/dist-packages 文件夹下添加 .pth 结尾的文件.
+
+     2. 在文件中 写入路径即可.
+

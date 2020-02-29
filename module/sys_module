@@ -1,17 +1,33 @@
-简介:sys模块负责程序与python解释器的交互,提供了一系列的函数和变量,用于操控python的运行时环境.
+一. 概 念 :
 
-  sys模块包括了一组非常实用的服务，内含很多函数方法和变量，用来处理Python运行时配置以及资源，从而可以与前当程序之外的系统环境交互。
 
-sys模块重要函数变量
+    sys模块是与解释器的交互.常用于操控python的运行时环境.
 
-1 ) sys.stdin 标准输入流。
-2）sys.stdout 标准输出流。
-3 ) sys.stderr 标准错误流。
-4 ) sys.path 查找模块所在目录的目录名列表。输出结果是列表
-5 ) sys.argv 命令行的参数，包括脚本名称。
-6 ) sys.platform 返回当前系统平台，如：win32、Linux等。
 
-使用sys下的path变量查看所有的python路径:
-import sys
-print('\n\nPython 路径为:',sys.path,'\n')
-用python3.6执行就是3.6的所有路径,3.8就是3.8的所有路径
+二. 模 块 内 容 :
+
+    <1> sys.stdin 标准输入流。
+
+
+    <2> sys.stdout 标准输出流。
+
+
+    <3> sys.stderr 标准错误流。
+
+
+    <4> sys.path 查找模块所在目录的目录名列表。输出结果是列表
+
+
+    <5> sys.argv 命令行的参数，包括脚本名称。
+
+
+    <6>sys.platform 返回当前系统平台，如：win32、Linux等。
+
+
+    <7> 使用sys下的path变量查看所有的python路径 :
+
+        import sys
+
+        sys.path
+        
+        注 意 : 用python3.6执行就是3.6的所有路径,3.8就是3.8的所有路径

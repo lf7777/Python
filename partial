@@ -1,4 +1,23 @@
-from functools import partial  导入偏函数
+一. 导 入 模 块 : 
 
-偏函数就是通过
-partial(函数名,参数...)  提前传参数进去.
+    原 理 : 修改函数的 默认参数 得到一个新函数.
+
+    格 式 : 
+            
+            from functools import partial  导入偏函数
+
+            newFunction =  partial(函数名,参数)  
+
+    示 例 : print2 = partial(print,end='')
+
+            此时可以调用 print2函数 来执行 不换行的 打印函数.
+
+
+from functools import partial as p
+
+p2 = p(print,end='')
+
+p2(123)
+p2(123)
+p2(123)
+p2(123)

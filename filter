@@ -1,10 +1,27 @@
-过滤器.过滤函数排除可迭代对象中的项目
-python3返回一个迭代器,python2返回列表.
+一.概 念 :
+        
+        过滤器.将结果为 True 的元素 返回到一个新的迭代器.
 
-使用:
+            python3返回一个迭代器,python2返回列表.
 
-x = filter(lambda y:y%2==1,[1,2,3,4,5])
-z = list(x)
-z指向的是 [1,3,5].    注意:1.lambda中 lambda后面的是参数,:号后面的是函数return的表达			       式,return表达式里不需要加if. 
+二. 格 式 :
 
-filter()方法调用其中的函数时,只返回True的内容.False则直接无视.
+        filter(函数,可迭代对象)
+
+            return 迭代器
+
+        list(迭代器)
+
+        得到一个存有 过滤完的列表.
+
+三. 示 例 :
+
+    tmplist = ['春天','abc','555']
+
+    def is_digit(n):
+        return n.isdigit()
+
+    res = filter(is_digit,tmplist)
+
+    list(res)
+
