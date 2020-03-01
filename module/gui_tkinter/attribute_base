@@ -1,0 +1,105 @@
+一. 基 本 属 性 :
+
+  <详见practice/tkinter/attribute_base.py>
+
+
+    <1> 颜 色 :   
+
+        创建对象时 添加 bg = ''
+
+        示 例 : btn = tkinter.Button(root,text='颜色',bg='blue')   
+
+    <2> 字 体 :
+
+        创建对象时 添加 font=('字体',像素) 
+
+        示 例 : btn = tkinter.Button(root,text='颜色',font=('黑体',30))   
+
+        注意元祖中的顺序.
+
+
+    <3> 锚 点 : 
+
+        设置当前组件中 <某个内容> 在框体中的位置(North:n,South:s,West:w,East:e)
+
+        创建对象时 添加 anchor属性
+
+        示 例 : btn = tkinter.Button(root,text='锚点',anchor='nw') 西北角:左上   
+
+    <4> 三 维 效 果 :
+
+        创建对象时 添加 relief=''
+
+        小部件的样式 : flat raised sunken groove ridge
+
+        示 例 : btn = tkinter.Button(root,text='颜色',relief='ridge')   
+
+
+    <5> 位 图 :
+
+        用图片替代按钮的文字.
+
+        创建对象时 添加 bitmap='' 
+
+        系统只提供:error,gray75,gray50,gray25,gray12,hourglass,info,questhead
+
+                   question,waring
+
+        示 例 : btn = tkinter.Button(root,bitmap='error')
+
+
+    <6> 光 标 :
+
+        鼠标在组件里的样式.
+
+        创建对象时 添加 cursor = ''
+
+        图标样式 查看官网 standard attributes(标准属性)里的 Cursors
+
+        示 例 : btn = t.Button(root,text='鼠标',cursor='heart')
+
+        主界面设置鼠标样式 :
+
+            root['cursor']='spider'
+
+
+    <7> 图 片 :
+
+        两 种 格 式 :
+
+          1.BitmapImage类,支持的格式很少,用第二种.
+
+
+          2.PhotoImage类 支持 .gif .pgm 或 ppm格式
+
+          任何组件都可以设置图片
+
+          创建PhotoImage对象,在()中file=地址,创建组件,image=图片对象
+
+          示 例 : tmp = tkinter.PhotoImage(file='tmp.gif')
+
+                  btn = tkinter.Button(root,image=tmp)
+
+                  btn.pack() #其他的摆放格式都可以.
+    
+     
+    <8> 给主窗体设置初始大小尺寸 :
+
+        随意拖放,无需 minsize,maxsize 的最大最小尺寸
+
+        root.geometry = ('600x300')
+
+            宽 600 高 300
+
+    <9> 
+   <10> 
+   <11> 
+   <12> 
+   <13> 
+   <14> 
+   <15> 
+   <16> 
+   <17> 
+   <18> 
+   <19> 
+   <20> 

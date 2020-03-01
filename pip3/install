@@ -1,4 +1,4 @@
-使用包管理器安装pip
+使包管理器安装pip
 在Arch Linux及其变体如Antergos，Manjaro Linux上，您可以使用命令安装pip：
 
 Python 2:
@@ -68,6 +68,8 @@ $ sudo zypper install python-pip python-setuptools python-wheel
 Python 3:
 
 $ sudo zypper install python3-pip python3-setuptools python3-wheel
+
+
 
 在ebian/Ubuntu:
 
