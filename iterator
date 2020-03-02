@@ -1,0 +1,38 @@
+一. 迭 代 器    生 成 器    可 迭 代 对 象 :
+
+    iterator    generator   iterable
+
+
+    迭代器 : 可以 指定个数需求,获取指定数量的 值.
+
+
+    迭代器的生成 :
+
+        <1> 通过生成器的两种方式生成 :
+
+            1. yield 函数. 调用函数对象.
+
+                iterator = 带 yield 的函数
+
+            2. 元祖推导式. 
+            
+                iterator = (i for i in range(10))
+
+        <2> 用iter函数 通过可迭代对象 生成迭代器 : 
+
+            iter(可迭代对象) 列表,元祖,集合,字典,字符串.
+
+
+二. 迭代器 可迭代对象 的判断
+
+    <1> 导 包 :
+
+        from collections import Iterable,Iterator
+
+        判断是否是 迭代器 :
+
+            isinstance(对象,Iterator)
+
+        判断是否是 可迭代对象 :  
+            
+            isinstance(对象,iterable)

@@ -1,7 +1,8 @@
-一. 重 要 组 件 :
+一. Button 按 钮 :
 
     按钮组件的 <很多属性> 其他组件 <是通用的>.
 
+    <详见 practice/tkinter/button.py>
 
     <1> button 按钮
 
@@ -47,7 +48,119 @@
 
 
 
-二. 组 件 概 览 :
+二. Cheakbutton 选 择 框 组 件/复 选 框 :
+
+    <详见 practice/tkinter/cheakbutton.py> 
+
+    <1> 创建选择框组件/复选框 :
+
+            ctn = tkinter.Checkbutton(root,text='')
+
+
+    <2>创建 复选框文字创建的两种方式 :
+
+            1.ctn = tkinter.Checkbutton(root,text='同意此协议')
+
+            2.text1 = t.StringVar()
+    
+              text1.set('同意此协议')
+        
+              ctn = t.Checkbutton(root,textvariable=text1)
+
+
+    <3> 设置复选框 勾选得到的效果:
+
+        以下为标准步骤  
+
+        def func():
+            print(result.get())
+
+        result = tkinter.IntVar()
+
+        ctn = tkinter.Checkbutton(root,text='',variable=result,command=func)
+         
+
+
+三. Entry 单行文本输入框 :
+
+    <详见 practice/tkinter/entry.py> 
+
+    entry = tkinter.Entry(width=30,bg='grey',fg='yellow')
+
+        遮盖属性
+
+            show = '*'
+
+
+四. Frame 容器 :
+
+    <详见 practice/tkinter/frame.py> 
+
+    #创建frame框架组件
+    
+    frame1 = t.Frame(bg='grey',width=800,height=200)
+    
+    frame1.pack()
+
+    btn = tkinter.Button(frame1,text='按钮')
+
+        将按钮的摆放位置 选择 frame框架 .
+
+
+
+四. LabelFrame(root,text='提示文字')
+
+    在容器边框上,附加文字说明.
+
+    <详见 practice/tkinter/lableframe.py>
+
+
+
+五. Lable 标签
+
+    <详见 practice/tkinter/label.py>
+
+    类似 p标签 ,纯文本的一个组件
+
+    lable = tkinter.Label(root,text='标签')
+
+
+
+六. Listbox 列表盒子
+
+    <详见 practice/tkinter/listbox.py>
+
+    标 准 格 式 :
+
+      将数据转换为 tkinter 可识别的 tkinter字符串变量.
+
+        names = ('春','暖','花','开')
+
+        s = tkinter.StringVar(value=names)
+
+        listbox=tkinter.Listbox(root,listvariable=s)
+
+        listbox.pack()
+
+        
+
+七. Menu 菜 单 
+
+    <详见 practice/tkinter/menu.py>
+
+    步骤: 1. 创建主菜单(主菜单是横向的空白)
+
+          2. 创建子菜单(子菜单是主菜单里的每一个内容)
+
+          3. 将子菜单加入主菜单
+
+          4. 将主菜单加入界面
+
+
+
+
+
+N. 组 件 概 览 :
 
 
     <1> Frame 框架
