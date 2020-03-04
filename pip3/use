@@ -1,38 +1,88 @@
-1.查看版本:
-pip3 -V
-pip3 --version
+一. 安 装 :
 
-2.which pip3
-查看位置
 
-3.which python3 which python
-查看python不同版本的位置
+    <1> 查看版本 :
+        pip --version
 
-4.更改pip3指向
-编辑pip3文件，将第一行的路径更改为python3所在的位置
-#! 文件地址
-#!是默认的
+    <2> 安 装 :
+        $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   
+        # 下载安装脚本
+    
+        $ sudo python get-pip.py    # 运行安装脚本
+        
+        注意：用哪个版本的 Python 运行安装脚本，pip 就被关联到哪个版本，
+        如果是 Python3 则执行以下命令：
 
-5.pip3 install 包名
-pip3会在PyPI中查找这个包，计算其依赖关系
+        $ sudo python3 get-pip.py    # 运行安装脚本。
+        一般情况 pip 对应的是 Python 2.7，pip3 对应的是 Python 3.x。
 
-一般Ubuntu默认的Python版本都为2.x, 如何改变Python的默认版本呢？假设我们需要把Python3.5设置为默认版本：
-首先查看Python默认版本:
+        部分 Linux 发行版可直接用包管理器安装 pip，如 Debian 和 Ubuntu：
 
-ubuntu@user~$:python --version
-Python 2.7
-搜索系统是否已经安装Python3.5:
+        sudo apt-get install python-pip
 
-ubuntu@user~$:whereis python3.5
-如果结果里有/usr/bin/python3.5说明已经安装，如果没有则需要手动安装。
 
-安装完成后，需要删除原有的Python连接文件:
 
-ubuntu@user~:rm /user/bin/python
-然后建立指向Python3.5的软连接：
+二. pip 最常用命令
 
-ubuntu@user~:ln -s /usr/bin/python3.5 /usr/bin/python
-之后把路径/usr/bin/加入环境变量PATH中：
+    <1>显示版本和路径
+        pip --version
 
-ubuntu@user~:PATH=/usr/bin:$PATH
-现在输入python --version你就会发现python默认版本变为Python3.5了:)
+    <2>获取帮助
+        pip --help
+
+    <3>升级 pip
+        pip install -U pip
+        
+        如果这个升级命令出现问题 ，可以使用以下命令：
+
+        sudo easy_install --upgrade pip
+
+    <4>安装包
+
+        pip install SomePackage              # 最新版本
+        pip install SomePackage==1.0.4       # 指定版本
+        pip install 'SomePackage>=1.0.4'     # 最小版本
+        
+        比如我要安装 Django。用以下的一条命令就可以，方便快捷。
+            pip install Django==1.7
+
+    <5>升级包
+        pip install --upgrade SomePackage
+        升级指定的包，通过使用==, >=, <=, >, < 来指定一个版本号。
+
+        
+    <6>卸载包
+        pip uninstall SomePackage
+
+    <7>搜索包
+        pip search SomePackage
+
+    <8>显示安装包信息
+        pip show 
+
+    <9>查看指定包的详细信息
+        pip show -f SomePackage
+
+    <10>列出已安装的包
+        pip list
+
+    <11>查看可升级的包
+        pip list -o
+
+
+
+三. 注 意 事 项 :
+
+    <1>如果 Python2 和 Python3 同时有 pip，则使用方法如下：
+
+        Python2：
+            python2 -m pip install XXX
+
+        Python3:
+            python3 -m pip install XXX
+
+    <2> 修改 pip3 指向(修改之前安装的包,不能被新指向所导入,需要从新安装模块)
+
+        sudo vim /usr/bin/pip3 
+
+        将首行的注释末尾的版本修改.
