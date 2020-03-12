@@ -21,3 +21,10 @@ python 虚 拟 环 境 搭 建 :
 
 
             搭建成功,通过 pip3 install 配置包
+
+
+步 骤 五 :
+
+            退出虚拟环境
+
+            deactivate
