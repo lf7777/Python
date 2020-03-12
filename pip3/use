@@ -2,7 +2,7 @@
 
 
     <1> 查看版本 :
-        pip --version
+        pip3 --version
 
     <2> 安 装 :
         $ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py   
@@ -52,22 +52,22 @@
 
         
     <6>卸载包
-        pip uninstall SomePackage
+        pip3 uninstall SomePackage
 
     <7>搜索包
-        pip search SomePackage
+        pip3 search SomePackage
 
     <8>显示安装包信息
-        pip show 
+        pip3 show 
 
     <9>查看指定包的详细信息
-        pip show -f SomePackage
+        pip3 show -f SomePackage
 
     <10>列出已安装的包
-        pip list
+        pip3 list
 
     <11>查看可升级的包
-        pip list -o
+        pip3 list -o
 
 
 

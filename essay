@@ -77,3 +77,7 @@
 
      2. 在文件中 写入路径即可.
 
+
+<16> python venv 安装
+
+     apt-get install python3.8-venv
