@@ -1,0 +1,23 @@
+python 虚 拟 环 境 搭 建 :
+
+步 骤 一 : 安装 venv
+
+           apt-get install python3.8-venv
+
+         
+步 骤 二 : 创 建 虚 拟 环 境 :
+
+           新建项目目录
+
+           执 行 : linux : python3.8 -m venv 虚拟环境名
+
+                   创建 虚拟环境名的文件夹
+
+步 骤 三 : 
+
+            linux下 进入 bin目录
+
+            source activate
+
+
+            搭建成功,通过 pip3 install 配置包

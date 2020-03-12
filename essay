@@ -35,7 +35,6 @@
 <8> 列表具有穿透函数的效果,可以无视局部,全局变量.
 
 
-
 <9> range() 左闭右开
 
     第一个参数 : 起始位置.              默认不存在 是 0 .
@@ -78,6 +77,13 @@
      2. 在文件中 写入路径即可.
 
 
-<16> python venv 安装
+<16> python 虚拟环境搭建
 
-     apt-get install python3.8-venv
+     python venv 安装 :
+
+        apt-get install python3.8-venv
+
+     语 法 : 
+
+            linux : python3.8 -m venv 虚拟环境名
+
