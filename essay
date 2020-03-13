@@ -91,10 +91,10 @@
 
 import hashlib
 
-def get_token():
     md5str = 'abc'
 #生成一个md5对象
     m1 = hashlib.md5()
+#用md5对象更新字符串
     m1.update(md5str.encode('utf-8'))
+#获得md5数据
     token=m1.hexdigest()
-    return token
