@@ -87,3 +87,14 @@
 
             linux : python3.8 -m venv 虚拟环境名
 
+<17> python 生成md5
+
+import hashlib
+
+def get_token():
+    md5str = 'abc'
+#生成一个md5对象
+    m1 = hashlib.md5()
+    m1.update(md5str.encode('utf-8'))
+    token=m1.hexdigest()
+    return token
