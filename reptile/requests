@@ -1,0 +1,39 @@
+一. 概 念 : 
+
+
+    get  从服务器获取信息,不改变服务器的状态(不改变服务器后端的mysql)
+
+    post 向服务器发送一些信息时使用
+
+         同样也是 获取信息,和 get 的区别在于 post 会先发送些 表单数据等. 
+
+            然后根据发送的数据,获取到服务器返回给你的信息.
+    
+         主要用于 修改服务器的状态,服务器后端数据库增删改等等.
+         
+
+
+二. 参 数 作 用 :
+
+    <1> varify = False
+
+        作 用 : 设置不检查ssh,让抓包工具(filder)可以抓到包
+                
+                这样可以看到我们发送的请求的详细信息
+
+        示 例 : get(url,verify=False)
+
+    <2> headers = headers
+
+        作 用 : 因有的网页会不允许爬出程序访问,通过改变自身的headers达到目的.
+        
+                将自身的外壳(User-Agent)由 python request 转为自定义信息.
+
+        示 例 : headers={'User-Agent':'Mozilla/5.0.....'}
+        
+                get(url,headers=headers)
+            
+        思 路 : 如果浏览器能够访问,但是你不能,添加headers,先添加 User-Agent,
+
+                再添加 Referer,最后添加 Cookie,最最后全添加.
+                

@@ -1,0 +1,186 @@
+一.  爬 虫 步 骤 :
+
+
+     <1> 需 求 分 析                    程序员 人工智能
+
+     <2> 找到内容相关的网址             程序员
+
+     <3> 根据网址获取到网址的返回信息   程序(包:urllib,requests)
+
+     <4> 定位需要的信息                 程序(re正则表达式,XPATH,css selector)
+
+     <5> 存储内容                       程序(文件系统open,pymysql,pymongo)
+
+
+
+<get 基础        详见 get_mould_01.py>
+<get 添加headers 详见 get_mould_02.py>
+
+<post 基础       详见 post_mould_01.py>
+<基础详见 mould.py>
+
+<session类 >
+
+
+二. JSON
+
+
+    import json
+
+    <1> json.loads()
+
+        json.loads 是将 json的字符串(爬取下来的内容),转换为可操作的dict
+
+        示 例 : json.loads(response.text)
+
+
+
+三. http / https
+
+    请求    request (req)
+
+    回应    respond (resp)
+
+    定义 客户端向服务器端 发送请求,服务器端 给出回应 的信息语言 <规则> 就是http.
+
+    让每个 req 之前产生关系的是 cookie 和 session会话 对应关系.
+
+
+
+四. 观察到 http 包
+
+
+    网页的network中查看包时,最好将 Preserve log 勾选
+
+        作 用 : 刷新网页时,如勾选上,刷新网页则不会清空信息.
+
+    <1> 请求的 包头中 很重要的信息 及描述 :
+
+        (1) Cookie         : 能够存储一些服务器端的信息
+
+                             与 session 共同完成身份标识的工作
+
+
+        (2) User-Agent     : 客户端版的环境 (浏览器,内核,操作系统等)
+
+
+        (3) Referer        : 从哪里超链接来的
+
+
+
+    <2> General 部分
+
+
+        (1) Request URL    :    资源的请求url
+
+        (2) Request Method :    HTTP 方法
+
+        (3) Status Code    :    相应状态码(200 ok
+        
+                                301 资源被转移其他URL 
+
+                                404 请求的资源(网页等)不存在
+
+                                500 内部服务器错误
+
+        (4) Remote Address :
+
+        (5) Referrer Policy:
+
+
+    <3> Request Headers 部分
+
+
+        (1) Accept         : 客户端能接收的资源类型 (text/html)
+
+        
+        (2) Accept-Encoding: 客户端能接收的压缩数据的类型 (gzip,deflate)
+
+
+        (3) Acceop-Language: 客户端能接收的语言类型 (en-US,en;q=0.8)
+
+
+        (4) Cache-Control  : 服务器禁止客户端缓存页面数据 (no-cache)
+
+
+        (5) Connection     : 维护客户端和服务端的连接关系 (keep-live)
+
+
+        (6) Cookie         : 客户端暂存服务端的信息
+
+
+        (7) Host           : 连接的目标主机和端口号 (www.baidu.com)
+
+
+        (8) Sec-Fetch-Mode :
+
+
+        (9) Sec-Fetch-Site :
+
+
+       (10) Sec-Fetch-User :
+
+
+       (11) Upgrade-Insecure-Request :
+
+
+       (12) User-Agent     : 客户端版本号的名字 (浏览器,内核,操作系统等)
+
+
+       (13) Referer        : 来于哪里
+
+
+       (14) Pragma         : 服务器禁止客户端缓存页面数据
+
+
+
+    <4> Response Headers 部分
+
+
+        (1) Bdpagetype     :
+
+
+        (2) Bdqid          :
+
+
+        (3) Cache-Control  :
+
+
+        (4) Connection     :
+
+
+        (5) Content-Encoding : 压缩编码类型 (gzip)
+
+
+        (6) Content-Type   : 服务端发送的类型及采用的编码格式 (text/html) 
+
+
+        (7) Date           : 客户端请求服务端的时间 (Tue,14 Feb 2020 00:00:00)
+
+
+        (8) Expires        : 
+
+
+        (9) Server         : 服务器的Web服务端名 (百度是BWS/1.1)
+
+
+       (10) Set-Cookie     :
+
+
+       (11) Set-Cookie     :
+
+
+       (12) Set-Cookie     :
+
+
+       (13) Strict-Transport-Security :
+
+
+       (14) Traceid        :
+
+
+       (15) Transfer-Encoding : 分块传递数据到客户端 (chunked)
+
+
+       (16) X-Ua-Compatible:
+

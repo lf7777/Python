@@ -1,0 +1,27 @@
+一. w3lib
+
+    import w3lib
+
+    <代码详见 program/weibo_微博爬去.py>
+
+    作 用 :
+        
+            <1> 标签相关
+
+
+二. 函 数 :
+
+    
+    <1> remove_tags
+    
+        from w3lib.html import remove_tags
+
+    将一个字符串中 带有内容的标签 及内容去掉.(标签中若无内容,则留下标签,已测试)
+
+        示 例 :
+
+        result = remove_tags('带有标签的字符串')
+
+    
+
+            
