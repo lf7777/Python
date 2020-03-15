@@ -1,0 +1,56 @@
+一. 正 则 表 达 式 : (Regular Expression) regex
+
+
+    import re
+
+    help(re)
+
+    作 用 : 查 找 , 替 换 .
+
+    内 容 : 字符串/文本
+
+
+二. re 模 块 :
+
+
+    <1> match()
+
+
+
+    <2> searche()
+
+
+
+    <3> findall()
+
+
+
+    <4> finditer() 搜寻者
+
+        类似 生成器,迭代器
+
+
+
+    <5> sub() 附属的
+
+
+
+    <6> compile() 编写
+
+
+
+    <7> group() 
+    
+        获取到匹配到的数据(未匹配到不能 .group())    
+
+        参 数 : 
+
+               只要以 ( 开头了 就代表是一个group
+
+               所以 (()) 嵌套中的 group 就是第二个
+
+        示 例 :
+
+        re.search(pattern,line).group()
+
+        
