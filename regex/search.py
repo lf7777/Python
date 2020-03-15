@@ -1,5 +1,12 @@
 import re
 
+#search 原理
+#re.search() return 
+#_compile(pattern,flags).search(string)
+
+#pat_obj = re.compile(pattern)
+#res = pat_obj.search(text,pos)
+
 
 #文本
 

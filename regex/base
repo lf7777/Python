@@ -15,24 +15,41 @@
 
     <1> match()
 
+        只找 必须从头开始 符合匹配模式 的内容.
+        
+        res = re.match(pattern,line)
 
 
-    <2> searche()
+    <2> search()
 
+        不必须从第一个开始找,但是只会找到一个.
+
+        res = re.search(pattern,line)
 
 
     <3> findall()
 
+        找到所有.
+        
+        res = re.findall(pattern,line)
 
 
     <4> finditer() 搜寻者
 
-        类似 生成器,迭代器
+        res = finditer(pattern,line)
 
+        res 是迭代器对象,通过 next(res) 或 for... in res:遍历
 
 
     <5> sub() 附属的
 
+        将匹配到的内容, <替换> 成指定的字符.
+
+        res = re.sub(pattern,replace_str,text)
+
+        attention :
+
+        the middle of arguments is want to replace string
 
 
     <6> compile() 编写
