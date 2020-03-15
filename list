@@ -227,7 +227,15 @@
 
             升序,修改原列表
 
-            a.sort()
+            a.sort(cmp=None,key=None,reverse=False)
+
+            参 数 : reverse = False 默认值是升序, True 为降序
+
+                    cmp 如果指定了该参数会使用该参数的方法进行排序
+
+                    key 主要用来进行比较的元素,只有一个参数就是取自于迭代对象中
+
+                    指定可迭代对象中的一个元素来进行排序.
 
 
     <4> 查 看 :
