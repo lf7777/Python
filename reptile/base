@@ -12,6 +12,17 @@
      <5> 存储内容                       程序(文件系统open,pymysql,pymongo)
 
 
+     <1> 需 求 分 析 
+
+     <2> 人工找到 url
+
+     <3> requests 的入参就是 url ,requests 的返回值 html json
+
+     <4> 通过 regex 从 html中获取数据,通过 json.loads() 并编写程序获取json中数据
+
+     <5> 把具体需要存储的数据进行存储
+
+
 
 <get 基础        详见 get_mould_01.py>
 <get 添加headers 详见 get_mould_02.py>
