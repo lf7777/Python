@@ -15,6 +15,7 @@ data_list = res_dict['data']['data']
 
 #连接mysql数据库
 db = pymysql.connect('localhost','root','lf','reptile',charset='utf8mb4')
+
 cursor = db.cursor()
 
 sql = 'insert into comment(username,content) values'
