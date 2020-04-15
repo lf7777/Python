@@ -23,30 +23,7 @@
      <5> 把具体需要存储的数据进行存储
 
 
-
-<get 基础        详见 get_mould_01.py>
-<get 添加headers 详见 get_mould_02.py>
-
-<post 基础       详见 post_mould_01.py>
-<基础详见 mould.py>
-
-<session类 >
-
-
-二. JSON
-
-
-    import json
-
-    <1> json.loads()
-
-        json.loads 是将 json的字符串(爬取下来的内容),转换为可操作的dict
-
-        示 例 : json.loads(response.text)
-
-
-
-三. http / https
+二. http / https
 
     请求    request (req)
 

@@ -2,7 +2,7 @@ import requests,json
 
 url = 'https://fanyi.baidu.com/sug'
 
-form = {'kw':'你就是一个货'}
+form = {'kw':'英文'}
 
 response = requests.post(url,data=form)
 

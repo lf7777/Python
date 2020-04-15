@@ -1,0 +1,14 @@
+from lxml import etree
+
+rep = req.get(url)
+
+with open('','r') as fr:
+    fr.read()
+
+
+通过 etree类 调用 HTML方法, 传入 HTML网页数据,获得 tree型HTML
+tree = etree.HTML(fr)
+
+
+通过 实例化出的tree 调用自身 xpath方法,传入路径,获取信息
+res = tree.xpath('')

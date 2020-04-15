@@ -37,3 +37,33 @@
 
                 再添加 Referer,最后添加 Cookie,最最后全添加.
                 
+
+三. JSON
+
+
+    import json
+
+    <1> json.loads()
+
+        json.loads 是将 json的字符串(爬取下来的内容),转换为可操作的dict
+
+        示 例 : json.loads(response.text)
+
+    <2> response.json()
+
+        不需要导 json ,但是要 reponse.encodeint = 网站的 charset
+
+
+    <3> json 示 例 :  
+
+        response = requests.get(url, headers=headers)
+        
+        res_dict = json.loads(response.content)
+        
+        data_list = res_dict['data']['data']
+
+        简 化 版 :
+
+        res_dict = response.json() 不需导包
+
+        data_list = res_dict['data']['data']

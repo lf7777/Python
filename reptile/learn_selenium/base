@@ -1,0 +1,50 @@
+Selenium 自动化测试框架
+
+
+功 能 :
+
+    1. 启动浏览器
+
+    2. 输入url,访问网页
+
+    3. 定位数据
+
+    4. 填写表单
+
+    5. 获取网页源代码
+
+问 题 : 慢 
+
+应 用 场 景 : 验证登录
+
+
+
+安 装 流 程 :
+
+1. 下载和谷歌浏览器版本对应的 chromedriver
+
+    goole-chrome --version
+
+    Chromedriver 下载地址
+
+    http://chromedriver.storage.googleapis.com/index.html
+
+2. 解压文件
+    
+    unzip chromedriver_linux64.zip
+
+3. 配置路径
+
+    sudo mv -f chromedriver /usr/local/share/chromedriver
+
+    sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+
+    sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+
+4. 安装依赖
+
+    sudo apt -y install libgconf2-4
+
+5. 安装 selenium
+
+    pip3 install selenium
