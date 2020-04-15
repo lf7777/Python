@@ -36,3 +36,5 @@
         判断是否是 可迭代对象 :  
             
             isinstance(对象,iterable)
+
+
