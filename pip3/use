@@ -21,17 +21,20 @@
         sudo apt-get install python-pip
 
 
+二. pip 常用命令
 
-二. pip 最常用命令
 
-    <1>显示版本和路径
+    <1> 显示版本和路径
+
         pip --version
 
-    <2>获取帮助
+    <2> 获取帮助
+    
         pip --help
 
-    <3>升级 pip
-        pip install -U pip
+    <3> 升级 pip
+
+        pip3 install --upgrade pip
         
         如果这个升级命令出现问题 ，可以使用以下命令：
 
@@ -41,10 +44,11 @@
 
         pip install SomePackage              # 最新版本
         pip install SomePackage==1.0.4       # 指定版本
-        pip install 'SomePackage>=1.0.4'     # 最小版本
+        pip install SomePackage>=1.0.4     # 最小版本
+
+        pip3 install django==1.* 安装1.几的最新版本
         
-        比如我要安装 Django。用以下的一条命令就可以，方便快捷。
-            pip install Django==1.7
+        pip install django==1.7
 
     <5>升级包
         pip install --upgrade SomePackage
@@ -86,3 +90,16 @@
         sudo vim /usr/bin/pip3 
 
         将首行的注释末尾的版本修改.
+
+
+四. 更 新 源 :
+
+
+    当前用户下 mkdir .pip
+
+    cd .pip
+
+    vim pip.conf 并添加或修改url:
+
+    [global]
+    index-url = https://pypi.tuna.tsinghua.edu.cn/simple

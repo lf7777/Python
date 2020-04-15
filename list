@@ -290,3 +290,9 @@
             
             [i + j for i in colors1 for j in colors2 if colors1.index(i) == colors2.index(j)]
 
+
+    <3> 对 item 操作:
+
+        [item for item in list if item.strip()]
+
+        返回 strip() 后的 item

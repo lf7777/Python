@@ -1,0 +1,126 @@
+一. 项 目 创 建 及 服 务 器 :
+
+
+    <1> 创建 Django 项目 :
+
+        django-admin startproject dir_name
+
+    <2> 启 动 服 务 器 :
+
+        python3.8(或其他版本) manage.py runserver 此处可指定端口号
+
+    <3> 查 看 manage.py 命 令 :
+
+        python3.8 manage.py
+
+    <4> django 项目下终端 :
+
+        python3.8 mange.py shell
+
+
+
+二. app 应 用 程 序 :
+
+
+    <1> 创 建 app :
+
+        python3.8 manage.py startapp dir_name
+
+        注 意 : app名不能为 test or admin
+
+
+
+三. 数 据 库:
+
+
+    <1> 创建 SQLlite 数据库:
+
+        python3.8 manage.py migrate
+
+    <2> 创建超级管理员 (需要先建库) :
+
+        python3.8 manage.py createsuperuser
+
+    <3> 清空数据库 :
+
+        python3.8 manage.py flush
+
+    <4> 数据库命令 :
+    
+        python3.8 manage.py dbshell
+
+        django 会进入 settings.py 中设置的数据库,如果是mysql或其他会要求输入密码
+
+
+
+二. Django 根 系 统 目 录 :
+
+    
+    urls.py 根路由
+
+    settings.py 项目的配置文件
+
+    wsgi.py 用来部署服务器
+
+
+三. Django 应用程序 目 录 :
+
+
+    migrations 迁移 (对数据库的操作记录等)
+
+    models.py 模型文件
+
+    views.py 视图文件
+
+    admin.py django 后台文件
+
+    apps.py 当前应用的配置
+
+    tests.py 用做测试
+
+    urls.py 项目路由
+
+
+
+. 使 用 模 板 文 件 :
+
+
+    1. 在 manage.py 的同级目录下创建 templates 文件夹
+
+    2. 修改 服务器根下的 settings.py 文件,指定 template 目录位置
+
+    3. 在视图函数中使用 render(request,'index.html') 加载模板目录下的指定模板
+
+    4. 动态给数据到 html 文件, render(request,'index.html',{'name':'我'})
+
+
+
+. 配 置 静 态 文 件 :(css,js...)
+
+    
+    1. 配置 settings.py 
+
+       末尾添加 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'))
+
+    2. html 内 如何写 :
+
+       /static/css/index.css
+
+       网站的静态资源都可以在这里,images 同理
+
+
+
+.其 他 :
+
+
+    <1> name 
+
+        1. 在Html网页的链接中不写死访问地址,通过 :
+
+           {% url '' %} ''中的是字符串 path()中的 name=''
+
+        2. 此种为动态获取路由地址,通过 不变量 name
+
+        3. 此时 修改 path 的路由地址,Html网页通过 name 找到新的 path
+
+        4. 这样 调整路由地址时,就不用修改 Html的访问地址了.

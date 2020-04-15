@@ -77,16 +77,6 @@
      2. 在文件中 写入路径即可.
 
 
-<16> python 虚拟环境搭建
-
-     python venv 安装 :
-
-        apt-get install python3.8-venv
-
-     语 法 : 
-
-            linux : python3.8 -m venv 虚拟环境名
-
 <17> python 生成md5
 
 import hashlib
@@ -98,3 +88,21 @@ import hashlib
     m1.update(md5str.encode('utf-8'))
 #获得md5数据
     token=m1.hexdigest()
+
+
+<18> python 三 元 表 达 式 :
+
+     1 if 1 < 0 else 2
+
+     最左侧为 if 为 True 的返回值
+
+     中间为 if 条件
+
+     最右侧为 else  False 的返回值
+
+
+<19> 千万不要把 <文件名> 或 当前 <文件夹下的其他文件名字写成报名>
+
+     会导致 most likely due to a circular import
+
+            循环导入
