@@ -9,7 +9,7 @@ import time
 from threading import Lock
 创建锁 : lock = threading.Lock()
 上锁 : lock.acquire() 在需要的位置添加 acquire : 获得
-解锁 :  lock.release() 在需要的位置添加 release : 释放
+解锁 : lock.release() 在需要的位置添加 release : 释放
 上锁之后,第二个线程看到锁,进入阻塞状态,等待解锁,后再执行
 '''
 
