@@ -1,4 +1,6 @@
-# import queue 是一个包
+# producer 生产者,读作泼嘟sir.consumer 消费者,读作cansumer
+
+# import queue 是一个包,multiprocessing里也有Queue
 import threading,time,queue,random
 
 # 生产者 product

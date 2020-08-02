@@ -4,7 +4,7 @@ res = zip([1,2],[4,5])
 
 res = zip((1,2),(4,5))
 
-res = zip({1,2},{4,5})
+res1 = zip({1,2},{4,5})
 
 res = zip({1:2},{4:5})
 
@@ -18,3 +18,6 @@ res = tuple(res)
 res = set(res)
 
 res = dict(res)
+
+print(res1)
+# 打印结果是迭代器内存地址

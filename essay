@@ -106,3 +106,13 @@ import hashlib
      会导致 most likely due to a circular import
 
             循环导入
+
+
+<20> python 有自动化处理 Excel 的包
+
+
+<21> python 深浅拷贝
+
+     =       浅拷贝,拷贝引用,开辟另一个对象指向数据源
+
+     .copy() 深拷贝,新数据,和原数据除相同并无其他关系

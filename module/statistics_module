@@ -1,0 +1,8 @@
+一. 函 数 :
+
+
+import statistics as sta
+
+    <1> sta.mean(iteratable)
+
+        求平均数

@@ -1,30 +1,36 @@
 一. 概 念 :
 
+
     lanbda 函数是一种小的匿名函数.可接收任意数量的参数,但只能有一个表达式.
 
 
+
 二. 格 式 : 
+
     
-     (1) lambda arguments : expression
+     <1> lambda arguments : expression
 
             : 左边 为参数
 
             : 右边 为返回值 
 
-     (2) lambda arguments : True值 if...else语句 False值
+     <2> lambda arguments : True值 if...else语句 False值
 
             条件判断语句为真 : 返回 True值
 
             条件判断语句为假 : 返回 False值
 
 
+
 三. 示 例 : 
 
-    (1) x = lambda a,b : a+b
+
+    <1> x = lambda a,b : a+b
 
         print(x(3,4))
 
-    (2) getsex = lambda str1:'man' if str1 == '男' else 'women'
+
+    <2> getsex = lambda str1:'man' if str1 == '男' else 'women'
 
         result = getsex('男')
         
